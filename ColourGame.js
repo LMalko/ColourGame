@@ -7,6 +7,7 @@ colourDisplay.textContent = "RGB" + goal.split("b")[1];
 
 
 var messageDispaly = document.querySelector("#message");
+var titleH1 = document.querySelector("h1");
 
 for(var i = 0; i < squares.length; i++){
 	squares[i].style.backgroundColor = colours[i];
@@ -16,6 +17,7 @@ for(var i = 0; i < squares.length; i++){
 		if(clickedColour === goal){
 			messageDispaly.textContent = "Correct!";
 			changeColours(clickedColour);
+			titleH1.style.backgroundColor = goal;
 		}else{
 			this.style.background = "#232323";
 			messageDispaly.textContent = "Try Again";
