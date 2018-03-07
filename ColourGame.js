@@ -3,14 +3,11 @@ colours = generateRandomColours(6);
 var squares = document.querySelectorAll(".square");
 var goal = pickColour();
 var colourDisplay = document.getElementById("colourDisplay");
-colourDisplay.textContent = "RGB" + goal.split("b")[1];
-
-
 var messageDispaly = document.querySelector("#message");
 var titleH1 = document.querySelector("h1");
 var resetButton = document.querySelector("#resetButton");
 
-gameFlow();
+colourDisplay.textContent = "RGB" + goal.split("b")[1];
 
 resetButton.addEventListener("click", function(){
 	colours = generateRandomColours(6);
@@ -18,6 +15,10 @@ resetButton.addEventListener("click", function(){
 	colourDisplay.textContent = goal;
 	gameFlow();
 });
+
+gameFlow();
+
+
 
 function gameFlow(){
 	for(var i = 0; i < squares.length; i++){
@@ -36,8 +37,6 @@ function gameFlow(){
 		})
 	}
 }
-
-
 
 function changeColours(colour){
 	for(var i = 0; i < squares.length; i++){
