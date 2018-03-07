@@ -13,15 +13,25 @@ var colourDisplay = document.getElementById("colourDisplay");
 colourDisplay.textContent = "RGB" + goal.split("b")[1];
 
 
+var messageDispaly = document.querySelector("#message");
+
 for(var i = 0; i < squares.length; i++){
 	squares[i].style.backgroundColor = colours[i];
 
 	squares[i].addEventListener("click", function(){
 	var clickedColour = this.style.backgroundColor;
 		if(clickedColour === goal){
-			console.log("Good")
+			messageDispaly.textContent = "Correct!";
+			changeColours(clickedColour);
 		}else{
 			this.style.background = "#232323";
+			messageDispaly.textContent = "Try Again";
 		}
 	})
+}
+
+function changeColours(colour){
+	for(var i = 0; i < squares.length; i++){
+		squares[i].style.backgroundColor = colour;
+	}
 }
