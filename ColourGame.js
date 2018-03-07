@@ -1,4 +1,3 @@
-alert("POWODZENIA !!!");
 
 colours = [
 	"rgb(139, 0, 0)",
@@ -10,3 +9,7 @@ colours = [
 ];
 
 var squares = document.querySelectorAll(".square");
+
+for(var i = 0; i < squares.length; i++){
+	squares[i].style.backgroundColor = colours[i];
+}
