@@ -6,13 +6,13 @@ var colourDisplay = document.getElementById("colourDisplay");
 var messageDispaly = document.querySelector("#message");
 var titleH1 = document.querySelector("h1");
 var resetButton = document.querySelector("#resetButton");
-
 colourDisplay.textContent = "RGB" + goal.split("b")[1];
 
 resetButton.addEventListener("click", function(){
 	colours = generateRandomColours(6);
 	goal = pickColour();
 	colourDisplay.textContent = goal;
+	colourDisplay.textContent = "RGB" + goal.split("b")[1];
 	gameFlow();
 });
 
