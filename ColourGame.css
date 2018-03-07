@@ -6,14 +6,13 @@ body {
 	width: 30%;
 	background: purple;
 	padding-bottom: 30%;
-
+	float: left;
 	margin: 1.66%;
 }
 
 .container{
 	margin: 0 auto;
 	max-width: 600px;
-	border: solid 2px lime;
 }
 
 h1{
