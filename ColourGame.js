@@ -8,8 +8,19 @@ colourDisplay.textContent = "RGB" + goal.split("b")[1];
 
 var messageDispaly = document.querySelector("#message");
 var titleH1 = document.querySelector("h1");
+var resetButton = document.querySelector("#resetButton");
 
-for(var i = 0; i < squares.length; i++){
+gameFlow();
+
+resetButton.addEventListener("click", function(){
+	colours = generateRandomColours(6);
+	goal = pickColour();
+	colourDisplay.textContent = goal;
+	gameFlow();
+});
+
+function gameFlow(){
+	for(var i = 0; i < squares.length; i++){
 	squares[i].style.backgroundColor = colours[i];
 
 	squares[i].addEventListener("click", function(){
@@ -21,9 +32,12 @@ for(var i = 0; i < squares.length; i++){
 		}else{
 			this.style.background = "#232323";
 			messageDispaly.textContent = "Try Again";
-		}
-	})
+			}
+		})
+	}
 }
+
+
 
 function changeColours(colour){
 	for(var i = 0; i < squares.length; i++){
