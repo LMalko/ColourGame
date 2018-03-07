@@ -9,7 +9,8 @@ colours = [
 
 var squares = document.querySelectorAll(".square");
 var goal = colours[2];
-var colorDisplay = document.getElementById("colorDisplay");
+var colourDisplay = document.getElementById("colourDisplay");
+colourDisplay.textContent = "RGB" + goal.split("b")[1];
 
 
 for(var i = 0; i < squares.length; i++){
