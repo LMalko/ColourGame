@@ -21,7 +21,7 @@ for(var i = 0; i < squares.length; i++){
 		if(clickedColour === goal){
 			console.log("Good")
 		}else{
-			console.log("Not good")
+			this.style.background = "#232323";
 		}
 	})
 }
