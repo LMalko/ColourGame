@@ -1,4 +1,3 @@
-
 colours = [
 	"rgb(139, 0, 0)",
 	"rgb(178, 34, 34)",
@@ -9,6 +8,8 @@ colours = [
 ];
 
 var squares = document.querySelectorAll(".square");
+var goal = colours[2];
+
 
 for(var i = 0; i < squares.length; i++){
 	squares[i].style.backgroundColor = colours[i];
