@@ -64,6 +64,10 @@ button{
 	letter-spacing: 1px;
 	font-size: inherit;
 	transition: all 0.7s;
+	/*Safari support*/
+	--webkit-transition: all 0.7s;
+	/*Mozilla support*/
+	--moz-transition: all 0.7s;
 }
 
 button:hover{
