@@ -15,7 +15,7 @@ function start(coloursNumber){
 	goal = pickColour(colours);
 	colourDisplay.textContent = goal;
 	colourDisplay.textContent = "RGB" + goal.split("b")[1];
-	titleH1.style.backgroundColor = "#232323";
+	titleH1.style.backgroundColor = "steelblue";
 	gameFlow();
 }
 
