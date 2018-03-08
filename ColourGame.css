@@ -12,6 +12,10 @@ body {
 	margin: 1.66%;
 	border-radius: 40%;
 	transition: background 1.0s;
+	/*Safari support*/
+	--webkit-transition: background 1.0s;
+	/*Mozilla support*/
+	--moz-transition: background 1.0s;
 }
 
 .container{
