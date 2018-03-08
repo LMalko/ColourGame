@@ -43,6 +43,10 @@ h1{
 	background: blue;
 }
 
+#message{
+	display: inline-block;
+	width: 20%;
+}
 
 button{
 	border: none;
