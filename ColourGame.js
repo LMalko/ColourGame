@@ -6,6 +6,8 @@ var colourDisplay = document.getElementById("colourDisplay");
 var messageDispaly = document.querySelector("#message");
 var titleH1 = document.querySelector("h1");
 var resetButton = document.querySelector("#resetButton");
+var easyButton = document.querySelector("#easyButton");
+var hardButton = document.querySelector("#hardButton");
 colourDisplay.textContent = "RGB" + goal.split("b")[1];
 
 gameFlow();
