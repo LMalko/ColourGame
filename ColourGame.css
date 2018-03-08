@@ -27,8 +27,8 @@ h1{
 	text-transform: uppercase;
 }
 
-.colourDisplay{
-	color: white;
+#colourDisplay{
+	font-size: 200%;
 }
 
 #stripe{
