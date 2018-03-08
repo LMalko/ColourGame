@@ -23,6 +23,8 @@ h1{
 	text-align: center;
 	background:  steelblue;
 	margin: 0;
+	font-weight: normal;
+	text-transform: uppercase;
 }
 
 .colourDisplay{
