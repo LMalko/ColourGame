@@ -8,14 +8,6 @@ var titleH1 = document.querySelector("h1");
 var resetButton = document.querySelector("#resetButton");
 colourDisplay.textContent = "RGB" + goal.split("b")[1];
 
-resetButton.addEventListener("click", function(){
-	colours = generateRandomColours(6);
-	goal = pickColour();
-	colourDisplay.textContent = goal;
-	colourDisplay.textContent = "RGB" + goal.split("b")[1];
-	gameFlow();
-});
-
 gameFlow();
 
 
@@ -30,6 +22,7 @@ function gameFlow(){
 			messageDispaly.textContent = "Correct!";
 			changeColours(clickedColour);
 			titleH1.style.backgroundColor = goal;
+			resetButton.textContent = "Play again ?"
 		}else{
 			this.style.background = "#232323";
 			messageDispaly.textContent = "Try Again";
@@ -62,3 +55,12 @@ function getRandomColour(){
 				    Math.floor(Math.random() * 256) + ", " +
 				    Math.floor(Math.random() * 256) + ")"
 }
+
+resetButton.addEventListener("click", function(){
+	colours = generateRandomColours(6);
+	goal = pickColour();
+	colourDisplay.textContent = goal;
+	colourDisplay.textContent = "RGB" + goal.split("b")[1];
+	titleH1.style.backgroundColor = "#232323";
+	gameFlow();
+});
