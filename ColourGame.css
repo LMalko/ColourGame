@@ -40,7 +40,8 @@ h1{
 }
 
 .selected{
-	background: blue;
+	color: white;
+	background: steelblue;
 }
 
 #message{
@@ -57,4 +58,9 @@ button{
 	color: steelblue;
 	letter-spacing: 1px;
 	font-size: inherit;
+}
+
+button:hover{
+	color: white;
+	background: steelblue;
 }
