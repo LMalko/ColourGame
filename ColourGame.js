@@ -12,25 +12,25 @@ start(6);
 function start(coloursNumber){
 	messageDispaly.textContent = "Good Luck !";
 	colours = generateRandomColours(coloursNumber);
-	goal = pickColour(colours);
-	colourDisplay.textContent = goal;
-	colourDisplay.textContent = "RGB" + goal.split("b")[1];
+	goalColour = pickColour(colours);
+	colourDisplay.textContent = goalColour;
+	colourDisplay.textContent = "RGB" + goalColour.split("b")[1];
 	titleH1.style.backgroundColor = "steelblue";
 	gameFlow();
 }
 
 
 function gameFlow(){
-	colourDisplay.textContent = "RGB" + goal.split("b")[1];
+	colourDisplay.textContent = "RGB" + goalColour.split("b")[1];
 	for(var i = 0; i < squares.length; i++){
 	squares[i].style.backgroundColor = colours[i];
 
 	squares[i].addEventListener("click", function(){
 	var clickedColour = this.style.backgroundColor;
-		if(clickedColour === goal){
+		if(clickedColour === goalColour){
 			messageDispaly.textContent = "Correct!";
 			changeColours(clickedColour);
-			titleH1.style.backgroundColor = goal;
+			titleH1.style.backgroundColor = goalColour;
 			resetButton.textContent = "Play again ?"
 		}else{
 			this.style.background = "#232323";
