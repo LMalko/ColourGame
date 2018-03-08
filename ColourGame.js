@@ -1,20 +1,26 @@
-colours = generateRandomColours(6);
-
 var squares = document.querySelectorAll(".square");
-var goal = pickColour();
+var squaresHard = document.querySelectorAll(".hard");
 var colourDisplay = document.getElementById("colourDisplay");
 var messageDispaly = document.querySelector("#message");
 var titleH1 = document.querySelector("h1");
 var resetButton = document.querySelector("#resetButton");
 var easyButton = document.querySelector("#easyButton");
 var hardButton = document.querySelector("#hardButton");
-colourDisplay.textContent = "RGB" + goal.split("b")[1];
 
-gameFlow();
+start(6);
 
+function start(coloursNumber){
+	colours = generateRandomColours(coloursNumber);
+	goal = pickColour(colours);
+	colourDisplay.textContent = goal;
+	colourDisplay.textContent = "RGB" + goal.split("b")[1];
+	titleH1.style.backgroundColor = "#232323";
+	gameFlow();
+}
 
 
 function gameFlow(){
+	colourDisplay.textContent = "RGB" + goal.split("b")[1];
 	for(var i = 0; i < squares.length; i++){
 	squares[i].style.backgroundColor = colours[i];
 
@@ -39,7 +45,7 @@ function changeColours(colour){
 	}
 }
 
-function pickColour(){
+function pickColour(colours){
 	var random = Math.floor(Math.random() * colours.length);
 	return colours[random];
 }
@@ -59,10 +65,7 @@ function getRandomColour(){
 }
 
 resetButton.addEventListener("click", function(){
-	colours = generateRandomColours(6);
-	goal = pickColour();
-	colourDisplay.textContent = goal;
-	colourDisplay.textContent = "RGB" + goal.split("b")[1];
-	titleH1.style.backgroundColor = "#232323";
-	gameFlow();
+	squares = document.querySelectorAll(".square");
+	start(6);
 });
+
