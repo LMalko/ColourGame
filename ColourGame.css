@@ -11,6 +11,7 @@ body {
 	float: left;
 	margin: 1.66%;
 	border-radius: 40%;
+	transition: background 1.0s;
 }
 
 .container{
