@@ -69,3 +69,13 @@ resetButton.addEventListener("click", function(){
 	start(6);
 });
 
+easyButton.addEventListener("click", function(){
+	for(var i = 0; i < squaresHard.length; i++){
+		squaresHard[i].style.backgroundColor = "#232323";
+	}
+	squares = document.querySelectorAll(".easy");
+	easyButton.classList.add("selected");
+	hardButton.classList.remove("selected");
+	start(3);
+});
+
