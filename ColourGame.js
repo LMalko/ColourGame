@@ -65,8 +65,12 @@ function getRandomColour(){
 }
 
 resetButton.addEventListener("click", function(){
-	squares = document.querySelectorAll(".square");
-	start(6);
+	if (easyButton.classList.contains("selected")){
+		start(3);
+	}else{
+		squares = document.querySelectorAll(".square");
+		start(6);
+	}
 });
 
 easyButton.addEventListener("click", function(){
