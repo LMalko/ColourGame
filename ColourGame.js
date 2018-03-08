@@ -10,6 +10,7 @@ var hardButton = document.querySelector("#hardButton");
 start(6);
 
 function start(coloursNumber){
+	messageDispaly.textContent = "Good Luck !";
 	colours = generateRandomColours(coloursNumber);
 	goal = pickColour(colours);
 	colourDisplay.textContent = goal;
@@ -65,6 +66,7 @@ function getRandomColour(){
 }
 
 resetButton.addEventListener("click", function(){
+	resetButton.textContent = "New Colours";
 	if (easyButton.classList.contains("selected")){
 		start(3);
 	}else{
