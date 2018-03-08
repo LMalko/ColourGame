@@ -1,8 +1,7 @@
 body {
 	background-color: #232323;
 	margin: 0;
-	/*In case on of the fonts not working.*/
-	font-family:  "Arial Black";
+	font-family: "Arial Black";
 }
 
 .square{
@@ -11,6 +10,7 @@ body {
 	padding-bottom: 30%;
 	float: left;
 	margin: 1.66%;
+	border-radius: 40%;
 }
 
 .container{
