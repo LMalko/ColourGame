@@ -79,3 +79,10 @@ easyButton.addEventListener("click", function(){
 	start(3);
 });
 
+hardButton.addEventListener("click", function(){
+	easyButton.classList.remove("selected");
+	hardButton.classList.add("selected");
+	squares = document.querySelectorAll(".square");
+	start(6);
+
+});
