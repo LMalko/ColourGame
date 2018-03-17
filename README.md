@@ -1,6 +1,6 @@
-# ColourGame
+# 1. ColourGame
 
-The goal is to guess colour according to RGB selection on the top.
+The goal is to guess the colour that matches RGB selection on the top.
 
 'An RGB color value is specified with: rgb(red, green, blue).
 
