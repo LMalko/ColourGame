@@ -23,21 +23,21 @@ function start(coloursNumber){
 function gameFlow(){
 	colourDisplay.textContent = "RGB" + goalColour.split("b")[1];
 	for(var i = 0; i < squares.length; i++){
-	squares[i].style.backgroundColor = colours[i];
+		squares[i].style.backgroundColor = colours[i];
 
-	squares[i].addEventListener("click", function(){
-	var clickedColour = this.style.backgroundColor;
-		if(clickedColour === goalColour){
-			messageDispaly.textContent = "Correct!";
-			changeColours(clickedColour);
-			titleH1.style.backgroundColor = goalColour;
-			resetButton.textContent = "Play again ?"
-		}else{
-			this.style.background = "#232323";
-			messageDispaly.textContent = "Try Again";
-			}
-		})
-	}
+		squares[i].addEventListener("click", function(){
+		var clickedColour = this.style.backgroundColor;
+			if(clickedColour === goalColour){
+				messageDispaly.textContent = "Correct!";
+				changeColours(clickedColour);
+				titleH1.style.backgroundColor = goalColour;
+				resetButton.textContent = "Play again ?"
+			}else{
+				this.style.background = "#232323";
+				messageDispaly.textContent = "Try Again";
+				}
+			})
+		}
 }
 
 function changeColours(colour){
