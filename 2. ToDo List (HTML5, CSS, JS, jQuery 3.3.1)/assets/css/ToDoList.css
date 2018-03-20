@@ -18,7 +18,7 @@ h1{
 	padding: 10px 20px;
 	text-transform: upprecase;
 	font-size: 24px;
-	font-weight: normal;
+	font-weight: bold;
 }
 
 ul{
@@ -29,9 +29,10 @@ ul{
 	padding: 0;
 }
 
-/*body{
-	font-family: 'Fjalla One', sans-serif;
-}*/
+body{
+	font-family: Helvetica;
+	font-weight: bold;
+}
 
 li{
 	background: rgb(169,169,169);
@@ -49,6 +50,7 @@ li:nth-child(2n){
 
 input{
 	font-size: 18px;
+	font-weight: bold;
 	background-color: rgb(169,169,169);
 	width: 100%;
 	padding: 13px 13px 13px 20px;
