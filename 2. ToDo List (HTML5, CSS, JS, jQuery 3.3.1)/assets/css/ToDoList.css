@@ -10,3 +10,14 @@
 	color: grey;
 	text-decoration: line-through;
 }
+
+h1{
+	background: #2980b9;
+	color: white;
+	margin: 0;
+	padding: 10px 20px;
+	text-transform: upprecase;
+	font-size: 24px;
+	font-weight: normal;
+
+}
