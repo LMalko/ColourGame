@@ -1,3 +1,4 @@
+// Add event listeners to elements that exist when page loads, here it's <ul>.
 $("ul").on("click", "li", function(){
 	$(this).toggleClass("completed");
 });
@@ -20,7 +21,7 @@ $("input[type='text']").on("keypress", function(event){
  		// Clear input.
  		$(this).val("")
 
- 		$("ul").append("<li><span>X</span> " + toDoText + "</li>");
+ 		$("ul").append("<li><span>X</span> " + toDoText.substring(0,1).toUpperCase() + toDoText.substring(1) + "</li>");
 
 
  	}
