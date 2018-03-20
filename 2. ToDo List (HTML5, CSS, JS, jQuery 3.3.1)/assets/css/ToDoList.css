@@ -43,7 +43,8 @@ body{
 }
 
 li{
-	background: rgb(169,169,169);
+	
+	background: white;
 	height: 40px;
 	line-height: 40px;
 	color: #666;
@@ -52,7 +53,7 @@ li{
 
 /*Every other li*/
 li:nth-child(2n){
-	background: white;
+	background: rgb(169,169,169);
 	height: 40px;
 }
 
@@ -61,12 +62,15 @@ input{
 	font-weight: bold;
 	background-color: rgb(169,169,169);
 	width: 100%;
-	padding: 13px 13px 13px 24px;
+	padding: 13px 13px 13px 22px;
+	text-align: center;
 	box-sizing: border-box;
 	color: #2980b9;
+	border: 3px solid rgba(0, 0, 0, 0.0);
 }
 
 input:focus{
+	text-align: left;
 	background: #fff;
 	border: 3px solid #2980b9;
 	outline: none;
