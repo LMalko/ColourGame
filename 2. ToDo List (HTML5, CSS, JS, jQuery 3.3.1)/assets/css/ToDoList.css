@@ -46,3 +46,12 @@ li:nth-child(2n){
 	background: white;
 	height: 40px;
 }
+
+input{
+	font-size: 18px;
+	background-color: rgb(169,169,169);
+	width: 100%;
+	padding: 13px 13px 13px 20px;
+	box-sizing: border-box;
+	color: #2980b9;
+}
