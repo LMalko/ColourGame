@@ -1,6 +1,8 @@
 #container{
 	width: 360px;
-	margin: 0 auto;
+	margin: 100px auto;
+	background: rgb(169,169,169);
+	box-shadow: 0 0 3px rgba(111, 0, 0, 0.1);
 }
 
 
