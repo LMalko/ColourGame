@@ -71,3 +71,7 @@ input:focus{
 	border: 3px solid #2980b9;
 	outline: none;
 }
+
+.fa-child{
+	float: right;
+}
