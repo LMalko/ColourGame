@@ -2,6 +2,9 @@
 
 Web application for adding, viewing and deleting tasks.
 
+sources:  
+https://fontawesome.com/
+
 # 1. Colour Game
 
 The goal is to guess the colour that matches RGB selection on the top.
