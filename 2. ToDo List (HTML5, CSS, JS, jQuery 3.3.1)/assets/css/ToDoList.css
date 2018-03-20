@@ -32,3 +32,17 @@ ul{
 body{
 	font-family: 'Fjalla One', sans-serif;
 }
+
+li{
+	background: rgb(169,169,169);
+	height: 40px;
+	line-height: 40px;
+	color: #666;
+
+}
+
+/*Every other li*/
+li:nth-child(2n){
+	background: white;
+	height: 40px;
+}
