@@ -26,4 +26,8 @@ $("input[type='text']").on("keypress", function(event){
 
  	}
 });
+
+$(".fa-child").on("click", function(){
+	$("input[type=text]").fadeToggle();
+});
  
