@@ -1,14 +1,12 @@
-#container{
-	width: 360px;
-	margin: 100px auto;
-	background: rgb(169,169,169);
-	box-shadow: 0 0 3px rgba(111, 0, 0, 0.1);
-}
+body{
+	font-family: Helvetica;
+	font-weight: bold;
 
+	background: #1a2a6c;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to bottom, #fdbb2d, #b21f1f, #1a2a6c);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to bottom, #fdbb2d, #b21f1f, #1a2a6c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-.completed{
-	color: grey;
-	text-decoration: line-through;
+	background-attachment: fixed
 }
 
 h1{
@@ -27,19 +25,6 @@ ul{
 
 	margin: 0;
 	padding: 0;
-}
-
-body{
-	font-family: Helvetica;
-	font-weight: bold;
-
-
-	background: #1a2a6c;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to bottom, #fdbb2d, #b21f1f, #1a2a6c);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to bottom, #fdbb2d, #b21f1f, #1a2a6c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-	background-attachment: fixed
-
 }
 
 li{
@@ -76,10 +61,6 @@ input:focus{
 	outline: none;
 }
 
-.fa-child{
-	float: right;
-}
-
 span{
 	background: #e74c3c;
 	height: 40px;
@@ -90,7 +71,26 @@ span{
 	display: inline-block;
 	transition: 0.35s linear;
 }
+
 li:hover span{
 	width: 40px;
 	color: white;
 }
+
+#container{
+	width: 360px;
+	margin: 100px auto;
+	background: rgb(169,169,169);
+	box-shadow: 0 0 3px rgba(111, 0, 0, 0.1);
+}
+
+.completed{
+	color: grey;
+	text-decoration: line-through;
+}
+
+.fa-child{
+	float: right;
+}
+
+
