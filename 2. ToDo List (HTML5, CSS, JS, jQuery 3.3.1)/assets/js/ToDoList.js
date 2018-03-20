@@ -21,7 +21,7 @@ $("input[type='text']").on("keypress", function(event){
  		// Clear input.
  		$(this).val("")
 
- 		$("ul").append("<li><span><i class='fas fa-trash'></i></span> " + toDoText.substring(0,1).toUpperCase() + toDoText.substring(1) + "</li>");
+ 		$("ul").append("<li><span><i class='fas fa-trash-alt'></i></span> " + toDoText.substring(0,1).toUpperCase() + toDoText.substring(1) + "</li>");
 
 
  	}
