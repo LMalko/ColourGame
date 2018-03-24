@@ -11,7 +11,7 @@ sources: <br />
 Web application for adding, viewing and deleting tasks.
 
 sources:  
-    [Fonts](https://fontawesome.com/)
+<tab />   [Fonts](https://fontawesome.com/)
     
 
 # 1. Colour Game
