@@ -4,7 +4,9 @@ Press a-z keys to produce sounds & animations.
 
 sources: <br />
 - [Sounds](https://github.com/jonobr1/Neuronal-Synchrony)<br />
-- [Patatap original game](https://patatap.com/)                  
+- [Patatap original game](https://patatap.com/) 
+- [Paper.js](http://paperjs.org/)
+- [Howler.js](https://howlerjs.com/)
 
 # 2. ToDo List
 
@@ -12,6 +14,7 @@ Web application for adding, viewing and deleting tasks.
 
 sources:  
 - [Fonts](https://fontawesome.com/)
+- [jQuery3.3.1](https://jquery.com/)
     
 
 # 1. Colour Game
