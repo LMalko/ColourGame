@@ -22,7 +22,7 @@ The goal is to guess the colour that matches RGB selection on the top.
 >Each parameter (red, green, and blue) defines the intensity of the color as an integer between 0 and 255.
 >For example, rgb(0, 0, 255) is rendered as blue, because the blue parameter is set to its highest value (255) and the others are set to 0.
 <br />
-from: [GitHub Pages](https://pages.github.com/)
+[GitHub Pages](https://pages.github.com/)
 
 # 0. Score Keeper
 
