@@ -4,14 +4,27 @@
 	<title>Patatap</title>
 	<link rel="stylesheet" type="text/css" href="assets\css\Patatap.css">
 	<script type="text/javascript" src="assets\paper.js\dist\paper-full.js"></script>
-	<script type="text/javascript" src="assets\js\Patatap.js"></script>
 
 
 	<script type="text/paperscript" canvas="myCanvas">
 		
-	
+	function onKeyDown(event) {
+		var maxPoint = new Point(view.size.width, view.size.height);
+		console.log(maxPoint);
+		var randomPoint = Point.random();
+		console.log(randomPoint);
+		var point = maxPoint * randomPoint;
+		console.log(point);
+		new Path.Circle(new Point(point), 10).fillColor = 'purple';
+	}
 
 	</script>
+	<!-- onKeyDown alterantive -->
+<!-- 	function onKeyDown(event) {
+		 var randomWidth = Math.random() * window.innerWidth;
+		 var randomHeight = Math.random() * window.innerHeight;
+		 new Path.Circle(new Point(randomWidth, randomHeight), 10).fillColor = 'pink';
+		 } -->
 
 </head>
 <body>
@@ -19,6 +32,6 @@
 	<canvas id="myCanvas" resize></canvas>
 
 
-	
+ 
 </body>
 </html>
