@@ -2,6 +2,13 @@ var circles = [];
 
 paper.install(window);
 
+var keyData = {
+	a:{
+		"sound": new Howl({src: ['assets/sounds/bubbles.mp3']}),
+	}
+}
+
+
 window.onload = function() {
 
 	var canvas = document.getElementById('myCanvas');
@@ -11,33 +18,36 @@ window.onload = function() {
  
 	tool.onKeyDown = function(event) {
 
-	var randomWidth = Math.random() * window.innerWidth;
-	var randomHeight = Math.random() * window.innerHeight;
+		keyData[event.key]["sound"].play();
 
-	var circle = new paper.Path.Circle(new paper.Point(randomWidth, randomHeight), 180);
-	// Alternatively:
-	// var maxPoint = new paper.Point(view.size.width, view.size.height);
-	// var randomPoint = paper.Point.random();
-	// var point = new paper.Point(maxPoint * randomPoint);
-	// var circle = new paper.Path.Circle(point, 50);
+		var randomWidth = Math.random() * window.innerWidth;
+		var randomHeight = Math.random() * window.innerHeight;
 
-	// Get random color.
-	circle.fillColor = "#"+((1<<24)*Math.random()|0).toString(16);
+		var circle = new paper.Path.Circle(new paper.Point(randomWidth, randomHeight), 180);
+		// Alternatively:
+		// var maxPoint = new paper.Point(view.size.width, view.size.height);
+		// var randomPoint = paper.Point.random();
+		// var point = new paper.Point(maxPoint * randomPoint);
+		// var circle = new paper.Path.Circle(point, 50);
 
-	circles.push(circle);
+		// Get random color.
+		circle.fillColor = "#"+((1<<24)*Math.random()|0).toString(16);
+
+		circles.push(circle);
 	}
 
 
 	view.onFrame = function(event) {
 
-	for(var i = 0; i < circles.length; i++){
+		for(var i = 0; i < circles.length; i++){
 
-		// Change colors.
-		circles[i].fillColor.hue += 1;
+			// Change colors.
+			circles[i].fillColor.hue += 1;
 
-		// Minimize.
-		circles[i].scale(.97);
-		}
+			// Minimize.
+			circles[i].scale(.97);
+			}
 	}
+
 	paper.view.draw();
 }
