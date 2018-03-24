@@ -1,6 +1,6 @@
 # 3. Patatap clone game
 
-Press keys to produce sounds & animations. 
+Press a-z keys to produce sounds & animations. 
 
 sources: <br />
 - [Sounds](https://github.com/jonobr1/Neuronal-Synchrony)<br />
