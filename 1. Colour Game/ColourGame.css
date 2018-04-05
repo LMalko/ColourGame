@@ -2,6 +2,10 @@ body {
 	background-color: #232323;
 	margin: 0;
 	font-family: "Arial Black";
+
+	background-image: url("img/abstract.gif");
+    background-size: cover;
+    background-position: 200 200;
 }
 
 .square{
