@@ -1,6 +1,12 @@
-# 4. MovieAPIApp (Node.js, Express.js, npm Request)
+# 4. MovieAPIApp (Node.js, Express.js, npm Request, npm ejs)
 
 Movie search engine.
+
+Installation:
+- install Node.js
+- bash install.sh
+- Select package name : "movieapiapp".
+- go to "http://localhost:8080/"
 
 sources: <br />
 - https://github.com/request/request.git
