@@ -1,4 +1,4 @@
-# 3. Patatap clone game
+# 3. Patatap clone game  (Paper.js, Howler.js)
 
 Press a-z keys to produce sounds & animations. 
 
@@ -8,7 +8,7 @@ sources: <br />
 - [Paper.js](http://paperjs.org/)
 - [Howler.js](https://howlerjs.com/)
 
-# 2. ToDo List
+# 2. ToDo List (jQuery)
 
 Web application for adding, viewing and deleting tasks.
 
