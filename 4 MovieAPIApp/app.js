@@ -5,6 +5,14 @@ var request = require('request');
 
 app.set("view engine", "ejs");
 
+app.get("/results", function(req, res){
+    request("http://www.omdbapi.com/?s=hellraiser&apikey=thewdb", function(error, response, body){
+        if(!error && response.statusCode == 200){
+            res.send(body);
+        }
+    });
+});
+
 
 
 
@@ -14,5 +22,5 @@ app.set("view engine", "ejs");
 
 
 app.listen(8080, function(){
-    console.log("Server has started!");
+    console.log("MovieApp has started!");
 });
