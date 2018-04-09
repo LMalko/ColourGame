@@ -4,6 +4,7 @@ Movie search engine.
 
 sources: <br />
 - https://github.com/request/request.git
+- http://www.omdbapi.com/
 
 
 # 3. Patatap clone game  (Paper.js, Howler.js)
