@@ -1,3 +1,11 @@
+# 4. MovieAPIApp (Node.js, Express.js, npm Request)
+
+Movie search engine.
+
+sources: <br />
+- https://github.com/request/request.git
+
+
 # 3. Patatap clone game  (Paper.js, Howler.js)
 
 Press a-z keys to produce sounds & animations. 
