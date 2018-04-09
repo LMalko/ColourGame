@@ -1,6 +1,15 @@
 <h1>Results:</h1>
 
-<% results["Search"].forEach(function(movie){ %>
-    <li><%= movie["Title"] + " from " + movie["Year"]%></li>
-    <a href=<%=movie["Poster"]%>>Poster</a>
-<% }); %>
+<ul>
+    <% results["Search"].forEach(function(movie){ %>
+        <li>
+            <strong>
+            <%= movie["Title"]%>
+            </strong>
+            <%= " from " + movie["Year"]%>
+        </li>
+        <a href=<%=movie["Poster"]%>>Poster</a>
+    <% }); %>
+</ul>
+
+<a href="/">Go Back</a>
