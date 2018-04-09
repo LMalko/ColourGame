@@ -11,7 +11,9 @@ app.get("/", function(req, res){
 
 
 app.get("/results", function(req, res){
-    request("http://www.omdbapi.com/?s=centipede&apikey=thewdb", function(error, response, body){
+    var query = req.query.searcher;
+    var url = "http://www.omdbapi.com/?s=" + query + "&apikey=thewdb";
+    request(url, function(error, response, body){
         if(!error && response.statusCode == 200){
             var data = JSON.parse(body);
             res.render("results", {results: data});
