@@ -1,9 +1,17 @@
-# 4. MovieAPIApp (Node.js, Express.js, npm Request)
+# 4. MovieAPIApp (Node.js, Express.js, npm Request, npm ejs)
 
 Movie search engine.
 
+Installation:
+- install Node.js
+- bash install.sh
+- Select package name : "movieapiapp".
+- After intallation is finished, run "node app.js"
+- go to "http://localhost:8080/"
+
 sources: <br />
 - https://github.com/request/request.git
+- http://www.omdbapi.com/
 
 
 # 3. Patatap clone game  (Paper.js, Howler.js)
