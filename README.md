@@ -1,7 +1,5 @@
 # 5. YelpCamp Webpage (Node.js, Express.js, npm ejs)
 
-Movie search engine.
-
 Installation:
 - install Node.js
 - bash install.sh
