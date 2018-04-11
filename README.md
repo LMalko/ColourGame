@@ -1,5 +1,4 @@
-# 5. YelpCamp Webpage
-# (Node.js, Express.js, Bootstrap 4, npm ejs)
+# 5. YelpCamp Webpage (Node.js, Express.js, npm ejs, Bootstrap4)
 
 Installation:
 - install Node.js
