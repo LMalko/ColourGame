@@ -1,2 +1,2 @@
 npm init
-npm install --save express ejs request
+npm install --save express ejs
