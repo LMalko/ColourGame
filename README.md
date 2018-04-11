@@ -5,7 +5,7 @@ Movie search engine.
 Installation:
 - install Node.js
 - bash install.sh
-- Select package name : "YelpCamp".
+- Select package name : "yelpcamp".
 - After intallation is finished, run "node app.js"
 - go to "http://localhost:8080/"
 
