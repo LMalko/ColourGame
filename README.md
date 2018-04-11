@@ -1,4 +1,4 @@
-# 5. YelpCamp Webpage (Node.js, Express.js, npm Request, npm ejs)
+# 5. YelpCamp Webpage (Node.js, Express.js, npm ejs)
 
 Movie search engine.
 
