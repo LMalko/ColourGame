@@ -8,5 +8,5 @@ app.set("view engine", "ejs");
 
 
 app.listen(8080, function(){
-    console.log("MovieApp has started!");
+    console.log("YelpCamp server has started!");
 });
