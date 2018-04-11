@@ -1,4 +1,4 @@
-# 5. YelpCamp Webpage (Node.js, Express.js, npm ejs)
+# 5. YelpCamp Webpage (Node.js, Express.js, Bootstrap 4, npm ejs)
 
 Installation:
 - install Node.js
@@ -6,10 +6,6 @@ Installation:
 - Select package name : "yelpcamp".
 - After intallation is finished, run "node app.js"
 - go to "http://localhost:8080/"
-
-sources: <br />
-- https://github.com/request/request.git
-
 
 # 4. MovieAPIApp (Node.js, Express.js, npm Request, npm ejs)
 
