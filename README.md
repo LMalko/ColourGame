@@ -1,3 +1,18 @@
+# 5. YelpCamp Webpage (Node.js, Express.js, npm Request, npm ejs)
+
+Movie search engine.
+
+Installation:
+- install Node.js
+- bash install.sh
+- Select package name : "YelpCamp".
+- After intallation is finished, run "node app.js"
+- go to "http://localhost:8080/"
+
+sources: <br />
+- https://github.com/request/request.git
+
+
 # 4. MovieAPIApp (Node.js, Express.js, npm Request, npm ejs)
 
 Movie search engine.
