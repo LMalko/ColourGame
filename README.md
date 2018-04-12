@@ -1,4 +1,4 @@
-# 5. YelpCamp Webpage (Node.js, Express.js, Bootstrap4, npm ejs, npm body-parser )
+# 5. Campgrounds Webpage (Node.js, Express.js, Bootstrap4, npm ejs, npm body-parser)
 
 Installation:
 - install Node.js
