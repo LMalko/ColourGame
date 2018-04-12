@@ -3,7 +3,7 @@
 Installation:
 - install Node.js
 - bash install.sh
-- Select package name : "yelpcamp".
+- Select package name : "campgrounds".
 - After intallation is finished, run "node app.js"
 - go to "http://localhost:8080/"
 
