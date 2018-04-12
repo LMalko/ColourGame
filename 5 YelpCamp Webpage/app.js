@@ -18,6 +18,10 @@ app.get("/campgrounds", function(req, res){
     res.render("campgrounds", {campgrounds: campgrounds});
 });
 
+app.get("/campgrounds/new", function(req, res){
+    res.render("new")
+});
+
 app.post("/campgrounds", function(req, res){
 
 }
