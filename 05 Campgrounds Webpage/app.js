@@ -34,5 +34,5 @@ app.post("/campgrounds", function(req, res){
 
 
 app.listen(8080, function(){
-    console.log("YelpCamp server has started!");
+    console.log("Campgrounds server has started!");
 });
