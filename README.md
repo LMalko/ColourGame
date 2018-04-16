@@ -1,7 +1,7 @@
 # 5. Campgrounds Webpage (Node.js, Express.js, Bootstrap4, MongoDB, npm ejs, npm body-parser, npm mongoose)
 
 Installation:
-- install Node.js
+- install Node.js, MongoDB
 - bash install.sh
 - Select package name : "campgrounds".
 - After intallation is finished, run "node app.js"
