@@ -1,2 +1,2 @@
 npm init
-npm install --save express ejs body-parser
+npm install --save express ejs body-parser mongoose
