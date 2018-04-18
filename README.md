@@ -5,6 +5,7 @@ Installation:
 - bash install.sh
 - Select package name : "campgrounds".
 - After intallation is finished, run "node app.js"
+- mongod, mongo
 - go to "http://localhost:8080/"
 
 # 4. MovieAPIApp (Node.js, Express.js, npm Request, npm ejs)
