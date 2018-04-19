@@ -1,4 +1,4 @@
-# 5. Campgrounds Webpage (Node.js, Express.js, Bootstrap4, MongoDB, npm ejs, npm body-parser, npm mongoose)
+# 5. Campgrounds Webpage (Node.js, Express.js, Bootstrap4, MongoDB, REST, npm ejs, npm body-parser, npm mongoose)
 
 Installation:
 - install Node.js, MongoDB
