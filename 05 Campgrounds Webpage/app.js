@@ -45,13 +45,21 @@ app.post("/campgrounds", function(req, res){
         if(err){
             console.log(err);
         } else {
-            res.redirect("/index");
+            res.redirect("/campgrounds");
         }
     });
 });
 
 app.get("/campgrounds/:id", function(req, res){
-    res.render("show");
+    Campgrounds.findById(req.params.id, function(err, foundCampground){
+        if(err){
+            console.log(err);
+        } else{
+            res.render("show", {campgrounds: foundCampground});
+        }
+    });
+    req.params.id
+
 });
 
 
