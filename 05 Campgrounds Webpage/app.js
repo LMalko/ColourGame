@@ -12,7 +12,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 var campgroundSchema = new mongoose.Schema({
     name: String,
-    image: String
+    image: String,
+    description: String
 });
 
 var Campgrounds = mongoose.model("Campground", campgroundSchema);
@@ -47,6 +48,10 @@ app.post("/campgrounds", function(req, res){
             res.redirect("/campgrounds");
         }
     });
+});
+
+app.get("/campgrounds/:id", function(req, res){
+    res.render("show");
 });
 
 
