@@ -1,22 +1,14 @@
-var express = require("express");
-var app = express();
+const express = require("express");
+          app = express();
+          bodyParser = require("body-parser");
+          mongoose = require("mongoose");
+          Campground = require("./models/campground");
 
-var bodyParser = require("body-parser");
-
-var mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost:/campgroundsDB");
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
-
-var campgroundSchema = new mongoose.Schema({
-    name: String,
-    image: String,
-    description: String
-});
-
-var Campground = mongoose.model("Campground", campgroundSchema);
 
 
 app.get("/", function(req, res){
