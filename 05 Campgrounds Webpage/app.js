@@ -1,22 +1,18 @@
-var express = require("express");
-var app = express();
+const express = require("express");
+          app = express();
+          bodyParser = require("body-parser");
+          mongoose = require("mongoose");
+          Campground = require("./models/campground");
+          seedDB = require("./seeds");
 
-var bodyParser = require("body-parser");
+// Clear database.
+seedDB();
 
-var mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost:/campgroundsDB");
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
-
-var campgroundSchema = new mongoose.Schema({
-    name: String,
-    image: String,
-    description: String
-});
-
-var Campground = mongoose.model("Campground", campgroundSchema);
 
 
 app.get("/", function(req, res){
@@ -52,7 +48,8 @@ app.post("/campgrounds", function(req, res){
 });
 
 app.get("/campgrounds/:id", function(req, res){
-    Campground.findById(req.params.id, function(err, foundCampground){
+    Campground.findById(req.params.id).populate("comments").exec(
+        function(err, foundCampground){
         if(err){
             console.log(err);
         } else{
