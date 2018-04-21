@@ -3,6 +3,10 @@ const express = require("express");
           bodyParser = require("body-parser");
           mongoose = require("mongoose");
           Campground = require("./models/campground");
+          seedDB = require("./seeds");
+
+// Clear database.
+seedDB();
 
 mongoose.connect("mongodb://localhost:/campgroundsDB");
 
