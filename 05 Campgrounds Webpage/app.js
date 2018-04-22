@@ -24,13 +24,13 @@ app.get("/campgrounds", function(req, res){
         if(err){
             console.log(err);
         } else {
-            res.render("index", {campgrounds:allCampgrounds});
+            res.render("campgrounds/index", {campgrounds:allCampgrounds});
         }
     })
 });
 
 app.get("/campgrounds/new", function(req, res){
-    res.render("new")
+    res.render("campgrounds/new")
 });
 
 app.post("/campgrounds", function(req, res){
@@ -53,12 +53,23 @@ app.get("/campgrounds/:id", function(req, res){
         if(err){
             console.log(err);
         } else{
-            res.render("show", {campground: foundCampground});
+            res.render("campgrounds/show", {campground: foundCampground});
         }
     });
     req.params.id
 });
 
+
+
+app.get("/campgrounds/:id/comments/new", function(req, res){
+    Campground.findById(req.params.id, function(err, campground){
+        if (err){
+            console.log(err);
+        } else {
+            res.render("comments/new", {campground: campground})
+        }
+    });
+});
 
 app.listen(8080, function(){
     console.log("Campgrounds server has started!");
