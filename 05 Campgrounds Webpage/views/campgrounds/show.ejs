@@ -1,4 +1,4 @@
-<% include partials/header %>
+<% include ../partials/header %>
 
 <p><%= campground.name %></p>
 <img src="<%= campground.image %>" alt="<%= campground.name %>">
@@ -10,4 +10,9 @@
     </p>
 <% }); %>
 
-<% include partials/footer %>
+<p>
+    <a class="btn btn-success btn-lg"
+       href="/campgrounds/<%= campground._id %>/comments/new">Add new comment</a>
+</p>
+
+<% include ../partials/footer %>
