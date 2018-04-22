@@ -1,0 +1,13 @@
+
+.NewCampgroundPost{
+    width: 30%;
+    margin: 25px auto;
+}
+
+.CampgroundsIndexImage{
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    height: 160px;
+}
