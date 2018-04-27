@@ -2,9 +2,15 @@ const express = require("express");
           app = express();
           bodyParser = require("body-parser");
           mongoose = require("mongoose");
+          seedDB = require("./seeds");
+
+          passport = require("passport");
+          localStrategy = require("passport-local");
+
           Campground = require("./models/campground");
           Comment = require("./models/comment");
-          seedDB = require("./seeds");
+          User = require("./models/user")
+
 
 // Clear database.
 seedDB();
