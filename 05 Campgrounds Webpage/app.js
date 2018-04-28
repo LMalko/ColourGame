@@ -144,9 +144,11 @@ app.get("/login", function(req, res){
 //  app.post("/login", middleware, callback)
 app.post("/login",
     passport.authenticate("local", {
-        successRedirect: "/campgrounds",
+        // successRedirect: "/campgrounds",
         failureRedirect: "/login"
     }), function(req, res){
+        res.redirect(req.session.returnTo || '/campgrounds');
+        delete req.session.returnTo;
 });
 
 // LOGOUT ROUTE
@@ -159,6 +161,7 @@ function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
         return next();
     }
+    req.session.returnTo = req.originalUrl; //Store users current session
     res.redirect("/login");
 }
 
