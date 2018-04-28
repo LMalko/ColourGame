@@ -1,4 +1,5 @@
-# 5. Campgrounds Webpage (Node.js, Express.js, Bootstrap4, MongoDB, REST, npm ejs, npm body-parser, npm mongoose)
+# 5. Campgrounds Webpage (Node.js, Express.js, Bootstrap4, MongoDB, REST,
+npm [ ejs, body-parser, mongoose, passport, passport-local, passport-local-mongoose, express-session)
 
 Installation:
 - install Node.js, MongoDB
@@ -8,7 +9,7 @@ Installation:
 - mongod, mongo
 - go to "http://localhost:8080/"
 
-# 4. MovieAPIApp (Node.js, Express.js, npm Request, npm ejs)
+# 4. MovieAPIApp (Node.js, Express.js, npm [ Request, ejs ])
 
 Movie search engine.
 
