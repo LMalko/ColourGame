@@ -22,6 +22,8 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
 
+
+
 // PASSPORT CONFIGURATION.
 app.use(require("express-session")({
     secret: "This is the express-session secret",
@@ -35,7 +37,11 @@ passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-
+// Pass current user to all templates.
+app.use(function(req, res, next){
+    res.locals.currentUser = req.user;
+    next()
+});
 
 app.get("/", function(req, res){
     res.render("landing");
