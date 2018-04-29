@@ -22,6 +22,8 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
 
+
+
 // PASSPORT CONFIGURATION.
 app.use(require("express-session")({
     secret: "This is the express-session secret",
@@ -35,7 +37,11 @@ passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-
+// Pass current user to all templates.
+app.use(function(req, res, next){
+    res.locals.currentUser = req.user;
+    next()
+});
 
 app.get("/", function(req, res){
     res.render("landing");
@@ -81,9 +87,11 @@ app.get("/campgrounds/:id", function(req, res){
     req.params.id
 });
 
+// When a user asks to post a comment, middleware isLoggedIn will check first.
 
-
-app.get("/campgrounds/:id/comments/new", function(req, res){
+app.get("/campgrounds/:id/comments/new",
+    isLoggedIn,
+    function(req, res){
     Campground.findById(req.params.id, function(err, campground){
         if (err){
             console.log(err);
@@ -93,7 +101,9 @@ app.get("/campgrounds/:id/comments/new", function(req, res){
     });
 });
 
-app.post("/campgrounds/:id/comments", function(req, res){
+app.post("/campgrounds/:id/comments",
+    isLoggedIn,
+    function(req, res){
     Campground.findById(req.params.id, function(err, campground){
         if(err){
             console.log(err);
@@ -140,9 +150,11 @@ app.get("/login", function(req, res){
 //  app.post("/login", middleware, callback)
 app.post("/login",
     passport.authenticate("local", {
-        successRedirect: "/campgrounds",
+        // successRedirect: "/campgrounds",
         failureRedirect: "/login"
     }), function(req, res){
+        res.redirect(req.session.returnTo || '/campgrounds');
+        delete req.session.returnTo;
 });
 
 // LOGOUT ROUTE
@@ -150,6 +162,14 @@ app.get("/logout", function(req, res){
     req.logout();
     res.redirect("/campgrounds");
 });
+
+function isLoggedIn(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+    req.session.returnTo = req.originalUrl; //Store users current session
+    res.redirect("/login");
+}
 
 
 app.listen(8080, function(){
