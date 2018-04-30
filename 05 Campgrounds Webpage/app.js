@@ -3,7 +3,7 @@ const express = require("express");
           bodyParser = require("body-parser");
           mongoose = require("mongoose");
           seedDB = require("./seeds");
-          
+
           passport = require("passport");
           localStrategy = require("passport-local");
 
@@ -48,9 +48,13 @@ app.use(function(req, res, next){
 });
 
 // Use routes.
+
+
 app.use(indexRoutes);
-app.use(campgroundRoutes);
-app.use(commentRoutes);
+// Make all campground routes start with "/campgrounds/"
+app.use("/campgrounds", campgroundRoutes);
+// Same for comments, index doesn't have common address.
+app.use("/campgrounds/:id/comments", commentRoutes);
 
 
 app.listen(8080, function(){
