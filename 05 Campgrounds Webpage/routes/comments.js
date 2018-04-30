@@ -1,12 +1,15 @@
 var express = require("express");
-var router = express.Router();
+//  Use {mergeParams} to receive id after writing
+//  app.use("/campgrounds/:id/comments", commentRoutes);
+//  line in app.js
+var router = express.Router({mergeParams: true});
 var Campground = require("../models/campground");
 var Comment = require("../models/comment");
 
 
 // When a user asks to post a comment, middleware isLoggedIn will check first.
 
-router.get("/campgrounds/:id/comments/new",
+router.get("/new",
     isLoggedIn,
     function(req, res){
         Campground.findById(req.params.id, function(err, campground){
@@ -18,7 +21,7 @@ router.get("/campgrounds/:id/comments/new",
         });
     });
 
-router.post("/campgrounds/:id/comments",
+router.post("/",
     isLoggedIn,
     function(req, res){
         Campground.findById(req.params.id, function(err, campground){
