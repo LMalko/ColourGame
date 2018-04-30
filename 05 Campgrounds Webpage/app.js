@@ -3,7 +3,7 @@ const express = require("express");
           bodyParser = require("body-parser");
           mongoose = require("mongoose");
           seedDB = require("./seeds");
-
+          
           passport = require("passport");
           localStrategy = require("passport-local");
 
@@ -28,7 +28,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
 
 
-
 // PASSPORT CONFIGURATION.
 app.use(require("express-session")({
     secret: "This is the express-session secret",
@@ -49,10 +48,10 @@ app.use(function(req, res, next){
 });
 
 // Use routes.
-
 app.use(indexRoutes);
 app.use(campgroundRoutes);
 app.use(commentRoutes);
+
 
 app.listen(8080, function(){
     console.log("Campgrounds server has started!");
