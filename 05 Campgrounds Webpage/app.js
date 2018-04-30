@@ -48,8 +48,11 @@ app.use(function(req, res, next){
     next()
 });
 
+// Use routes.
 
-
+app.use(indexRoutes);
+app.use(campgroundRoutes);
+app.use(commentRoutes);
 
 app.listen(8080, function(){
     console.log("Campgrounds server has started!");
