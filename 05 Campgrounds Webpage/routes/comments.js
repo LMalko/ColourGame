@@ -1,6 +1,15 @@
-// When a user asks to post a comment, middleware isLoggedIn will check first.
+var express = require("express");
+//  Use {mergeParams} to receive id after writing
+//  app.use("/campgrounds/:id/comments", commentRoutes);
+//  line in app.js
+var router = express.Router({mergeParams: true});
+var Campground = require("../models/campground");
+var Comment = require("../models/comment");
 
-app.get("/campgrounds/:id/comments/new",
+
+// When a user asks to post a comment, middleware isLoggedIn will check first.
+// Comments new.
+router.get("/new",
     isLoggedIn,
     function(req, res){
         Campground.findById(req.params.id, function(err, campground){
@@ -12,7 +21,8 @@ app.get("/campgrounds/:id/comments/new",
         });
     });
 
-app.post("/campgrounds/:id/comments",
+//Comments create.
+router.post("/",
     isLoggedIn,
     function(req, res){
         Campground.findById(req.params.id, function(err, campground){
@@ -33,3 +43,13 @@ app.post("/campgrounds/:id/comments",
             }
         });
     });
+
+function isLoggedIn(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+    req.session.returnTo = req.originalUrl; //Store users current session
+    res.redirect("/login");
+}
+
+module.exports = router;

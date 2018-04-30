@@ -9,7 +9,12 @@ const express = require("express");
 
           Campground = require("./models/campground");
           Comment = require("./models/comment");
-          User = require("./models/user")
+          User = require("./models/user");
+
+var commentRoutes = require("./routes/comments");
+var campgroundRoutes = require("./routes/campgrounds");
+var indexRoutes = require("./routes/index");
+
 
 
 // Clear database.
@@ -21,7 +26,6 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
-
 
 
 // PASSPORT CONFIGURATION.
@@ -43,7 +47,14 @@ app.use(function(req, res, next){
     next()
 });
 
+// Use routes.
 
+
+app.use(indexRoutes);
+// Make all campground routes start with "/campgrounds/"
+app.use("/campgrounds", campgroundRoutes);
+// Same for comments, index doesn't have common address.
+app.use("/campgrounds/:id/comments", commentRoutes);
 
 
 app.listen(8080, function(){
