@@ -8,7 +8,7 @@ var Comment = require("../models/comment");
 
 
 // When a user asks to post a comment, middleware isLoggedIn will check first.
-
+// Comments new.
 router.get("/new",
     isLoggedIn,
     function(req, res){
@@ -21,6 +21,7 @@ router.get("/new",
         });
     });
 
+//Comments create.
 router.post("/",
     isLoggedIn,
     function(req, res){
