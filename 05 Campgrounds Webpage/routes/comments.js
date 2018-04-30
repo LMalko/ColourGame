@@ -1,5 +1,7 @@
 var express = require("express");
 var router = express.Router();
+var Campground = require("../models/campgrounds");
+var Comment = require("../models/comment");
 
 
 // When a user asks to post a comment, middleware isLoggedIn will check first.
@@ -38,5 +40,12 @@ router.post("/campgrounds/:id/comments",
         });
     });
 
+function isLoggedIn(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+    req.session.returnTo = req.originalUrl; //Store users current session
+    res.redirect("/login");
+}
 
 module.exports = router;
