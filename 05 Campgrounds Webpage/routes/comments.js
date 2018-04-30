@@ -1,6 +1,10 @@
+var express = require("express");
+var router = express.Router();
+
+
 // When a user asks to post a comment, middleware isLoggedIn will check first.
 
-app.get("/campgrounds/:id/comments/new",
+router.get("/campgrounds/:id/comments/new",
     isLoggedIn,
     function(req, res){
         Campground.findById(req.params.id, function(err, campground){
@@ -12,7 +16,7 @@ app.get("/campgrounds/:id/comments/new",
         });
     });
 
-app.post("/campgrounds/:id/comments",
+router.post("/campgrounds/:id/comments",
     isLoggedIn,
     function(req, res){
         Campground.findById(req.params.id, function(err, campground){
@@ -33,3 +37,6 @@ app.post("/campgrounds/:id/comments",
             }
         });
     });
+
+
+module.exports = router;
