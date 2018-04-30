@@ -9,7 +9,12 @@ const express = require("express");
 
           Campground = require("./models/campground");
           Comment = require("./models/comment");
-          User = require("./models/user")
+          User = require("./models/user");
+
+var commentRoutes = require("./routes/comments");
+var campgroundRoutes = require("./routes/campgrounds");
+var indexRoutes = require("./routes/index");
+
 
 
 // Clear database.
