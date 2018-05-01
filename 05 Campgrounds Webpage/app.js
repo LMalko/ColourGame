@@ -2,6 +2,8 @@ const express = require("express");
           app = express();
           bodyParser = require("body-parser");
           mongoose = require("mongoose");
+
+          // As we are adding new campgrounds at the start, the page will ask user to log in.
           seedDB = require("./seeds");
 
           passport = require("passport");
