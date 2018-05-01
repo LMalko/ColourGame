@@ -35,6 +35,12 @@ router.post("/",
                     if(err){
                         console.log(err);
                     } else {
+                        //Add id & username to comment
+                        comment.author.id = req.user._id;
+                        comment.author.username = req.user.username;
+                        // Save comment.
+                        comment.save();
+
                         campground.comments.push(comment);
                         campground.save();
                         res.redirect("/campgrounds/" + req.params.id);
