@@ -4,7 +4,7 @@ var Campground = require("../models/campground");
 
 // Show all campgrounds.
 
-router.get("/", isLoggedIn, function(req, res){
+router.get("/", function(req, res){
     Campground.find({}, function(err, allCampgrounds){
         if(err){
             console.log(err);
@@ -19,12 +19,20 @@ router.get("/new", isLoggedIn, function(req, res){
     res.render("campgrounds/new")
 });
 
-// Add new campground to DB.
-router.post("/", function(req, res){
+// CREATE - Add new campground to DB.
+router.post("/", isLoggedIn, function(req, res){
     var name = req.body.name;
     var image = req.body.image;
     var description = req.body.description;
-    var newCampground = {name: name, image: image, description: description};
+
+    // Assign current user to this new campground.
+    var thisAuthor = {
+        id: req.user._id,
+        username: req.user.username
+    };
+
+    var newCampground = {name: name, image: image,
+        description: description, author: thisAuthor};
     Campground.create(newCampground, function(err){
         if(err){
             console.log(err);
