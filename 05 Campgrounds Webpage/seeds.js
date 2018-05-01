@@ -36,11 +36,12 @@ function seedDB(){
                 Comment.create(
                     {
                         text: "This place is great for vacation.",
-                        author: "Janusz Dzięcioł"
                     }, function(err, comment){
                         if(err){
                             console.log(err)
                         } else{
+                            comment.author.username = "Janusz Dzięcioł";
+                            comment.save();
                             campground.comments.push(comment);
                             campground.save();
                         }
