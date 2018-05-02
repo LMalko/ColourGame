@@ -2,6 +2,7 @@ const express = require("express");
           app = express();
           bodyParser = require("body-parser");
           mongoose = require("mongoose");
+
           seedDB = require("./seeds");
 
           passport = require("passport");
