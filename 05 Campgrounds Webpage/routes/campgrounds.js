@@ -55,6 +55,15 @@ router.get("/:id", function(req, res){
     req.params.id
 });
 
+// Edit campground route, submits the form.
+
+router.get("/:id/edit", function(req, res){
+    res.render("campgrounds/edit");
+});
+// Update campground route, receives the form.
+
+// Middleware.
+
 function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
         return next();
