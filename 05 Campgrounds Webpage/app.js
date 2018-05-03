@@ -19,6 +19,10 @@ var commentRoutes = require("./routes/comments");
 var campgroundRoutes = require("./routes/campgrounds");
 var indexRoutes = require("./routes/index");
 
+// Method override needs to be high for others to see.
+app.use(methodOverride("_method"));
+
+
 
 // Clear database.
 seedDB();
@@ -58,7 +62,7 @@ app.use("/campgrounds", campgroundRoutes);
 // Same for comments, index doesn't have common address.
 app.use("/campgrounds/:id/comments", commentRoutes);
 
-app.use(methodOverride("_method"));
+
 
 app.listen(8080, function(){
     console.log("Campgrounds server has started!");
