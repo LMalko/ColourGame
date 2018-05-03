@@ -17,7 +17,6 @@ var campgroundRoutes = require("./routes/campgrounds");
 var indexRoutes = require("./routes/index");
 
 
-
 // Clear database.
 seedDB();
 
@@ -49,7 +48,6 @@ app.use(function(req, res, next){
 });
 
 // Use routes.
-
 
 app.use(indexRoutes);
 // Make all campground routes start with "/campgrounds/"
