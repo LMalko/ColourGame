@@ -13,7 +13,7 @@ const express = require("express");
           User = require("./models/user");
 
           methodOverride = require("method-override");
-          
+
 
 var commentRoutes = require("./routes/comments");
 var campgroundRoutes = require("./routes/campgrounds");
@@ -58,6 +58,7 @@ app.use("/campgrounds", campgroundRoutes);
 // Same for comments, index doesn't have common address.
 app.use("/campgrounds/:id/comments", commentRoutes);
 
+app.use(methodOverride("_method"));
 
 app.listen(8080, function(){
     console.log("Campgrounds server has started!");
