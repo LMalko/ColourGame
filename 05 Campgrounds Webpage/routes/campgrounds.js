@@ -56,9 +56,15 @@ router.get("/:id", function(req, res){
 });
 
 // Edit campground route, submits the form.
+// Pass campground to edit.
 
 router.get("/:id/edit", function(req, res){
-    res.render("campgrounds/edit");
+    Campground.findById(req.params.id, function(err, foundCampground){
+        if(err){
+            res.redirect("/campgrounds");
+        }
+        res.render("campgrounds/edit", {campground: foundCampground});
+    });
 });
 // Update campground route, receives the form.
 
