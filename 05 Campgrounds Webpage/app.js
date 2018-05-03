@@ -12,6 +12,9 @@ const express = require("express");
           Comment = require("./models/comment");
           User = require("./models/user");
 
+          methodOverride = require("method-override");
+          
+
 var commentRoutes = require("./routes/comments");
 var campgroundRoutes = require("./routes/campgrounds");
 var indexRoutes = require("./routes/index");
