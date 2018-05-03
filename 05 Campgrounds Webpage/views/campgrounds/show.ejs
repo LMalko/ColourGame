@@ -17,8 +17,15 @@
                 <h4 class="card-title pl-3 pt-3"><a ><%= campground.name %></a></h4>
                 <p class="pl-3 pr-3"><%= campground.description %></p>
                 <p class="pl-3 pr-3"><em>Posted by: <%= campground.author.username %></em></p>
-                <div >
-                    <h4 class="float-right pr-3">9.90$/night</h4>
+
+                <div class="pb-3 pl-3">
+                    <p>
+                        <a class="float-left btn btn-primary btn-lg"
+                           href="/campgrounds/<%= campground._id %>/edit">Edit campground</a>
+                    </p>
+                    <div >
+                        <h4 class="float-right pr-3">9.90$/night</h4>
+                    </div>
                 </div>
 
             </div>
