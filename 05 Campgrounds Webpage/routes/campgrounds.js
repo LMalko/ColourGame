@@ -68,6 +68,21 @@ router.get("/:id/edit", function(req, res){
 });
 // Update campground route, receives the form.
 
+router.put("/:id", function(req,res){
+    // Find and update the correct campground and redirect.
+    // Use mongoose built-in function.
+
+    Campground.findByIdAndUpdate(req.params.id,
+        req.body.campground,
+        function(err, updatedCampground){
+            if(err){
+                res.redirect("/campgrounds");
+            } else {
+                res.redirect("/campgrounds/" + req.params.id)
+            }
+    });
+});
+
 // Middleware.
 
 function isLoggedIn(req, res, next){
