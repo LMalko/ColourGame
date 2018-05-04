@@ -14,18 +14,29 @@
             <div class="card text-white bg-success">
 
                 <img class="card-img-top" src="<%= campground.image %>" alt="<%= campground.name %>">
-                <h4 class="card-title pl-3 pt-3"><a ><%= campground.name %></a></h4>
+                <div class="container pl-3 pr-3 pt-3">
+                    <h4 class="Inline card-title"><a ><%= campground.name %></a></h4>
+                    <h4 class="Inline float-right">9.90$/night</h4>
+                </div>
                 <p class="pl-3 pr-3"><%= campground.description %></p>
-                <p class="pl-3 pr-3"><em>Posted by: <%= campground.author.username %></em></p>
+
+                <div class="pr-3">
+                <p class="float-right"><em>Posted by: <%= campground.author.username %></em></p>
+                </div>
 
                 <div class="container pb-3 pl-3">
-                        <a class="btn-group btn-primary btn-lg"
-                           href="/campgrounds/<%= campground._id %>/edit">Edit campground</a>
 
-                        <a class="btn-group btn-danger btn-lg"
-                           href="/campgrounds/<%= campground._id %>/edit">Delete campground</a>
 
-                        <h4 class="CampgroundPrice float-right pr-3">9.90$/night</h4>
+                    <form class="Inline" action="/campgrounds/<%= campground._id %>/edit"
+                          method="GET">
+                        <button class="btn-group btn-primary btn-lg">Edit campground</button>
+                    </form>
+
+                    <form class="Inline" action="/campgrounds/<%= campground._id %>?_method=DELETE"
+                          method="POST">
+                        <button class="btn-group btn-danger btn-lg float-right">Delete campground</button>
+                    </form>
+
                 </div>
 
             </div>
