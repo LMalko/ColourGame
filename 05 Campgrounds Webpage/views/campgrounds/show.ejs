@@ -25,17 +25,19 @@
                 </div>
 
                 <div class="container pb-3 pl-3">
+                    <% if(currentUser){ %>
+                    <% if(campground.author.id.equals(currentUser._id)){ %>
+                        <form class="Inline" action="/campgrounds/<%= campground._id %>/edit"
+                              method="GET">
+                            <button class="btn-group btn-primary btn-lg">Edit campground</button>
+                        </form>
 
+                        <form class="Inline" action="/campgrounds/<%= campground._id %>?_method=DELETE"
+                              method="POST">
+                            <button class="btn-group btn-danger btn-lg float-right">Delete campground</button>
+                        </form>
 
-                    <form class="Inline" action="/campgrounds/<%= campground._id %>/edit"
-                          method="GET">
-                        <button class="btn-group btn-primary btn-lg">Edit campground</button>
-                    </form>
-
-                    <form class="Inline" action="/campgrounds/<%= campground._id %>?_method=DELETE"
-                          method="POST">
-                        <button class="btn-group btn-danger btn-lg float-right">Delete campground</button>
-                    </form>
+                    <% }} %>
 
                 </div>
 

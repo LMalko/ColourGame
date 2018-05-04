@@ -65,7 +65,7 @@ router.get("/:id/edit", checkCampgroundOwnership, function(req, res){
 });
 // Update campground route, receives the form.
 
-router.put("/:id", function(req,res){
+router.put("/:id", checkCampgroundOwnership, function(req,res){
     // Find and update the correct campground and redirect.
     // Use mongoose built-in function.
 
@@ -81,7 +81,7 @@ router.put("/:id", function(req,res){
 });
 
 // Destroy campground route.
-router.delete("/:id", function(req, res){
+router.delete("/:id", checkCampgroundOwnership, function(req, res){
     Campground.findByIdAndRemove(req.params.id, function(err){
         if(err){
             res.redirect("/campgrounds");
