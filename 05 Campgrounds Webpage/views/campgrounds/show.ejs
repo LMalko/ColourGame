@@ -25,8 +25,8 @@
                 </div>
 
                 <div class="container pb-3 pl-3">
-
-                    <% if (campground.author.id.equals(currentUser._id)){ %>
+                    <% if(currentUser){ %>
+                    <% if(campground.author.id.equals(currentUser._id)){ %>
                         <form class="Inline" action="/campgrounds/<%= campground._id %>/edit"
                               method="GET">
                             <button class="btn-group btn-primary btn-lg">Edit campground</button>
@@ -37,7 +37,7 @@
                             <button class="btn-group btn-danger btn-lg float-right">Delete campground</button>
                         </form>
 
-                    <% } %>
+                    <% }} %>
 
                 </div>
 
