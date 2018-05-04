@@ -19,13 +19,20 @@
                 <p class="pl-3 pr-3"><em>Posted by: <%= campground.author.username %></em></p>
 
                 <div class="container pb-3 pl-3">
-                        <a class="btn-group btn-primary btn-lg"
-                           href="/campgrounds/<%= campground._id %>/edit">Edit campground</a>
 
-                        <a class="btn-group btn-danger btn-lg"
-                           href="/campgrounds/<%= campground._id %>/edit">Delete campground</a>
 
-                        <h4 class="CampgroundPrice float-right pr-3">9.90$/night</h4>
+                    <form class="Inline" action="/campgrounds/<%= campground._id %>/edit"
+                          method="GET">
+                        <button class="btn-group btn-primary btn-lg">Edit campground</button>
+                    </form>
+
+                    <form class="Inline" action="/campgrounds/<%= campground._id %>?_method=DELETE"
+                          method="POST">
+                        <button class="btn-group btn-danger btn-lg">Delete campground</button>
+                    </form>
+
+
+                        <h4 class="Inline float-right pt-2 pr-3">9.90$/night</h4>
                 </div>
 
             </div>
