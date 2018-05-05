@@ -50,6 +50,10 @@ router.post("/",
         });
     });
 
+router.get("/:comment_id/edit", function(req, res){
+    
+});
+
 function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
         return next();
