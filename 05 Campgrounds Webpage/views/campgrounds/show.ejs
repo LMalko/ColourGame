@@ -61,8 +61,19 @@
                             <br>
                             <%=comment.text%>
                         </p>
-                        <a class="btn btn-sm btn-info"
-                           href="/campgrounds/<%= campground._id%>/comments/<%= comment._id%>/edit">Edit</a>
+                        <form class="Inline"
+                              action="/campgrounds/<%= campground._id%>/comments/<%= comment._id%>/edit"
+                              method="GET"><input type="submit" class="btn btn-group btn-sm btn-info"
+                                                   value="Edit">
+                        </form>
+                        <!--<a class="Inline btn btn-group btn-sm btn-info"-->
+                           <!--href="/campgrounds/<%= campground._id%>/comments/<%= comment._id%>/edit">Edit</a>-->
+                        <form class="Inline"
+                                action="/campgrounds/<%= campground._id%>/comments/<%= comment._id%>?_method=DELETE"
+                                method="POST"><input type="submit" class="btn btn-group btn-sm btn-danger"
+                                value="Delete">
+                        </form>
+
                     </div>
                 </div>
                 <% }); %>
