@@ -49,14 +49,5 @@ router.get("/logout", function(req, res){
     res.redirect("/campgrounds");
 });
 
-// middleware.
-function isLoggedIn(req, res, next){
-    if(req.isAuthenticated()){
-        return next();
-    }
-    req.session.returnTo = req.originalUrl; //Store users current session
-    res.redirect("/login");
-}
-
 
 module.exports = router;
