@@ -1,13 +1,13 @@
 <% include ../partials/header %>
 
 <div class="container" style="text-align: center;">
-    <h1>Edit comment<%= campground.name %></h1>
+    <h1>Edit Your comment in <%= campground.name %></h1>
 
     <div class="row" >
         <div class="NewPost">
             <!-- REST way to code 'PUT'-->
+            <!-- campground_id will be passed by router.get when rendering.-->
             <form
-                    <!-- campground_id will be passed by router.get when rendering.-->
                     action="/campgrounds/<%= campground_id %>/comments/<%= comment._id%>?_method=PUT"
                     method="POST">
                 <div class="form-group">
