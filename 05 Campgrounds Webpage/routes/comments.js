@@ -51,7 +51,7 @@ router.post("/",
     });
 
 router.get("/:comment_id/edit", function(req, res){
-    
+    res.render("comments/edit", {campground_id: req.params.id});
 });
 
 function isLoggedIn(req, res, next){
