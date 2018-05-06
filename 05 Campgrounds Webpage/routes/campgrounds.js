@@ -25,6 +25,8 @@ router.post("/", isLoggedIn, function(req, res){
     var image = req.body.image;
     var description = req.body.description;
 
+    delete req.session.returnTo;
+
     // Assign current user to this new campground.
     var thisAuthor = {
         id: req.user._id,

@@ -32,6 +32,7 @@ router.get("/login", function(req, res){
     res.render("login");
 });
 
+
 // HANDLING LOGIN LOGIC
 //  app.post("/login", middleware, callback)
 router.post("/login",
@@ -39,7 +40,7 @@ router.post("/login",
         // successRedirect: "/campgrounds",
         failureRedirect: "/login"
     }), function(req, res){
-        res.redirect(req.session.returnTo || '/campgrounds');
+        res.redirect(req.session.returnTo || beforePreviousURL);
         delete req.session.returnTo;
     });
 

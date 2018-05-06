@@ -30,6 +30,7 @@ router.post("/",
                 console.log(err);
                 res.redirect("/campgrounds")
             } else {
+                delete req.session.returnTo;
                 // Use dictionary comment[] from input name in new.ejs.
                 Comment.create(req.body.comment, function(err, comment){
                     if(err){
