@@ -49,9 +49,23 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 // Pass current user to all templates.
-app.use(function(req, res, next){
+
+// Also pass 2 last URL to go back one page after successful login if there is no next activity.
+// For this to work also add     delete req.session.returnTo;   in comments.post & campgrounds.post routes
+// Otherwise it will prioritize these previous posts because of line
+// res.redirect(req.session.returnTo || beforePreviousURL);
+// in index.js
+
+app.use(function(req, res, next) {
+    if (typeof previousURL !== 'undefined') {
+        beforePreviousURL = previousURL;
+    }
+    if (typeof thisURL !== 'undefined') {
+        previousURL = thisURL;
+    }
     res.locals.currentUser = req.user;
-    next()
+    thisURL = req.originalUrl;
+    next();
 });
 
 // Use routes.
