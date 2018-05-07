@@ -74,7 +74,9 @@ router.get("/:comment_id/edit",
 
 // Update route.
 
-router.put("/:comment_id", function(req, res){
+router.put("/:comment_id",
+    checkCommentOwnership,
+    function(req, res){
     // comment is an entire comment[text] object because it has only one attribute here - text
     Comment.findByIdAndUpdate(req.params.comment_id,
         req.body.comment,
@@ -88,7 +90,9 @@ router.put("/:comment_id", function(req, res){
 });
 
 // Destroy comment route.
-router.delete("/:comment_id", function(req, res){
+router.delete("/:comment_id",
+    checkCommentOwnership,
+    function(req, res){
     Comment.findByIdAndRemove(req.params.comment_id, function(err){
         if(err){
             res.redirect("back");
