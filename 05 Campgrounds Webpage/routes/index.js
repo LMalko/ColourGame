@@ -22,7 +22,8 @@ router.post("/register", function(req, res){
             return res.render("register");
         }
         passport.authenticate("local")(req, res, function(){
-            res.redirect("/campgrounds");
+            res.redirect(req.session.returnTo || beforePreviousURL);
+            delete req.session.returnTo;
         });
     });
 });
