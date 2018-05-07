@@ -53,7 +53,8 @@ function seedDB(){
                         if(err){
                             console.log(err)
                         } else{
-                            comment.author.username = "Janusz Dzięcioł";
+                            comment.author.username = "admin";
+                            comment.author.id = "5ae4fa1736273b2468e3c92f";
                             comment.save();
                             campground.comments.push(comment);
                             campground.save();
