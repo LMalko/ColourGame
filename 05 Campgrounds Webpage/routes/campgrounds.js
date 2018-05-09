@@ -40,8 +40,10 @@ router.post("/", middleware.isLoggedIn, function(req, res){
         description: description, author: thisAuthor};
     Campground.create(newCampground, function(err){
         if(err){
+            req.flash("error", err);
             console.log(err);
         } else {
+            req.flash("success", "Campground was added");
             res.redirect("/campgrounds");
         }
     });
