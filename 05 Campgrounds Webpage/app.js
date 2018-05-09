@@ -24,6 +24,7 @@ var indexRoutes = require("./routes/index");
 // Method override needs to be high for others to see.
 app.use(methodOverride("_method"));
 
+// Flash needs to be before passport configuration.
 app.use(flash());
 
 
