@@ -50,6 +50,9 @@ middlewareObject.isLoggedIn = function(req, res, next){
     if(req.isAuthenticated()){
         return next();
     }
+    // Flashes show on the next page. This line only saves it to memory,
+    // it has to be printed to be visible in header.
+    req.flash("error", "Please login first!");
     req.session.returnTo = req.originalUrl; //Store users current session
     res.redirect("/login");
 };
