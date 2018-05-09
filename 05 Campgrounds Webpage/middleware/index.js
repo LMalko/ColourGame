@@ -46,7 +46,13 @@ middlewareObject.checkCommentOwnership = function(req, res, next){
         }
     };
 
-
+middlewareObject.isLoggedIn = function(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+    req.session.returnTo = req.originalUrl; //Store users current session
+    res.redirect("/login");
+};
 
 
 module.exports = middlewareObject;
