@@ -1,4 +1,4 @@
-const express = require("express");
+var express = require("express");
           app = express();
           bodyParser = require("body-parser");
           mongoose = require("mongoose");
@@ -14,6 +14,8 @@ const express = require("express");
 
           methodOverride = require("method-override");
 
+          flash = require("connect-flash");
+
 
 var commentRoutes = require("./routes/comments");
 var campgroundRoutes = require("./routes/campgrounds");
@@ -21,6 +23,9 @@ var indexRoutes = require("./routes/index");
 
 // Method override needs to be high for others to see.
 app.use(methodOverride("_method"));
+
+// Flash needs to be before passport configuration.
+app.use(flash());
 
 
 
