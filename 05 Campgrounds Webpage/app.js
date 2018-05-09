@@ -68,8 +68,13 @@ app.use(function(req, res, next) {
     if (typeof thisURL !== 'undefined') {
         previousURL = thisURL;
     }
-    res.locals.currentUser = req.user;
     thisURL = req.originalUrl;
+
+    res.locals.currentUser = req.user;
+
+    res.locals.error = req.flash("error");
+    res.locals.success = req.flash("success");
+
     next();
 });
 
