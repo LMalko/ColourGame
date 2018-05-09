@@ -51,31 +51,33 @@
                 </div>
 
                 <hr class="ml-3 mr-3">
-                <% campground.comments.forEach(function(comment){   %>
-                <div class="row mt-3 ml-1 mr-1 mb-2">
-                    <div class="col-md-12">
-                        <p>
-                            <strong><%=comment.author.username%></strong>
-                            <span class="float-right">10 days ago</span>
-                            <br>
-                            <%=comment.text%>
-                        </p>
-                        <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+                <div class="container mt-3 ml-1 mr-1 mb-2">
+                        <% campground.comments.forEach(function(comment){   %>
+                        <div class="row mb-2">
+                            <div class="col-md-12">
+                                <p>
+                                    <strong><%=comment.author.username%></strong>
+                                    <span class="float-right">10 days ago</span>
+                                    <br>
+                                    <%=comment.text%>
+                                </p>
+                                <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
 
-                            <form class="Inline"
-                                  action="/campgrounds/<%= campground._id%>/comments/<%= comment._id%>/edit"
-                                  method="GET"><input type="submit" class="btn btn-group btn-sm btn-info"
-                                                       value="Edit">
-                            </form>
-                            <form class="Inline"
-                                    action="/campgrounds/<%= campground._id%>/comments/<%= comment._id%>?_method=DELETE"
-                                    method="POST"><input type="submit" class="btn btn-group btn-sm btn-danger"
-                                    value="Delete">
-                            </form>
+                                    <form class="Inline"
+                                          action="/campgrounds/<%= campground._id%>/comments/<%= comment._id%>/edit"
+                                          method="GET"><input type="submit" class="btn btn-group btn-sm btn-info"
+                                                               value="Edit">
+                                    </form>
+                                    <form class="Inline"
+                                            action="/campgrounds/<%= campground._id%>/comments/<%= comment._id%>?_method=DELETE"
+                                            method="POST"><input type="submit" class="btn btn-group btn-sm btn-danger"
+                                            value="Delete">
+                                    </form>
 
-                    </div>
+                            </div>
+                        </div>
+                        <% }}); %>
                 </div>
-                <% }}); %>
 
             </div>
         </div>
