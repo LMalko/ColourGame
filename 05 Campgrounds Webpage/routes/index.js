@@ -47,6 +47,8 @@ router.post("/login",
 
 // LOGOUT ROUTE
 router.get("/logout", function(req, res){
+    req.flash("success", "Successful log out");
+
     req.logout();
     res.redirect(previousURL);
 });
