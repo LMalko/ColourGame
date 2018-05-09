@@ -102,33 +102,4 @@ router.delete("/:comment_id",
     })
 });
 
-function isLoggedIn(req, res, next){
-    if(req.isAuthenticated()){
-        return next();
-    }
-    req.session.returnTo = req.originalUrl; //Store users current session
-    res.redirect("/login");
-}
-
-function checkCommentOwnership(req, res, next){
-    // Check if user is logged in.
-    if(req.isAuthenticated()){
-
-        Comment.findById(req.params.comment_id, function(err, foundComment){
-            if(err){
-                res.redirect("back");
-            } else{
-                // Does user own comment.
-                if(foundComment.author.id.equals(req.user._id)){
-                    next();
-                } else{
-                    res.redirect("back");
-                }
-            }
-        });
-        //  If not - redirect.
-    } else {
-        res.redirect("back");
-    }
-}
 module.exports = router;
