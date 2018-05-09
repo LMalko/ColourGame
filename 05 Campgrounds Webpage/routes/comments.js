@@ -86,6 +86,8 @@ router.put("/:comment_id",
         if (err) {
             res.redirect("back");
         } else {
+            req.flash("success", "Comment edited");
+
             res.redirect("/campgrounds/" + req.params.id);
         }
     });
@@ -99,6 +101,7 @@ router.delete("/:comment_id",
         if(err){
             res.redirect("back");
         } else {
+            req.flash("error", "Comment deleted");
             res.redirect("/campgrounds/" + req.params.id);
         }
     })
