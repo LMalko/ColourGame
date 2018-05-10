@@ -16,3 +16,7 @@ body {
     this way the content looks more visually centered*/
     padding-top: 40vh;
 }
+
+#landing-header h1 {
+    color: #fff;
+}
