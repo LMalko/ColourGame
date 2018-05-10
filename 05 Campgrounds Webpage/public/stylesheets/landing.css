@@ -22,6 +22,8 @@ body {
 }
 
 .slideshow {
+    /*positioned relative to the viewport,
+    which means it always stays in the same place even if the page is scrolled.*/
     position: fixed;
 
     /*Takes an entire page*/
@@ -36,7 +38,40 @@ body {
 
     /*Remove bullet-points*/
     list-style: none;
-    
+
     margin: 0;
     padding: 0;
+}
+
+.slideshow li {
+    width: 100%;
+    height: 100%;
+
+    /*The element is removed from the normal document flow,
+    and no space is created for the element in the page layout.
+    It is positioned relative to its closest positioned ancestor, if any;
+    otherwise, it is placed relative to the initial containing block.
+    Its final position is determined by the values of top, right, bottom, and left.*/
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    /*Take the entire space of the page*/
+    background-size: cover;
+
+    /*Center li on the page*/
+    background-position: 50% 50%;
+
+    /*Li not repeating vertically nor horizontally*/
+    background-repeat: no-repeat;
+
+    /*Start faded out*/
+    opacity: 0;
+
+    /*Li stay behind z-index: 1*/
+    z-index: 0;
+
+    /*Linear - move in the same speed, infinite - loop forever*/
+    animation: imageAnimation 50s linear infinite;
 }
