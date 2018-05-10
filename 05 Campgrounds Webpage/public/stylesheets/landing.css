@@ -75,3 +75,40 @@ body {
     /*Linear - move in the same speed, infinite - loop forever*/
     animation: imageAnimation 50s linear infinite;
 }
+
+.slideshow li:nth-child(1) {
+    background-image: url(../campgrounds/Li_1.jpg)
+}
+.slideshow li:nth-child(2) {
+    background-image: url(../campgrounds/Li_2.jpg);
+    animation-delay: 10s;
+}
+.slideshow li:nth-child(3) {
+    background-image: url(../campgrounds/Li_3.jpg);
+    animation-delay: 20s;
+}
+.slideshow li:nth-child(4) {
+    background-image: url(../campgrounds/Li_4.jpg);
+    animation-delay: 30s;
+}
+.slideshow li:nth-child(5) {
+    background-image: url(../campgrounds/Li_5.jpg);
+    animation-delay: 40s;
+}
+
+@keyframes imageAnimation {
+    0% {
+        opacity: 0;
+        animation-timing-function: ease-in;
+    }
+    10% {
+        opacity: 1;
+        animation-timing-function: ease-out;
+    }
+    20% {
+        opacity: 1
+    }
+    30% {
+        opacity: 0
+    }
+}
