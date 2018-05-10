@@ -8,11 +8,11 @@
     </head>
     <body>
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-dark" style="margin-bottom: 20px;">
+            <nav class="navbar navbar-expand-lg" style="margin-bottom: 20px;">
                 <div class="container-fluid">
 
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="/">Campgrounds</a>
+                        <a class="navbar-brand navbarTextColor" href="/">Campgrounds</a>
                     </div>
 
                     <div class="collapse navbar-collapse" >
@@ -22,11 +22,11 @@
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <%if(!currentUser){%>
-                                <li><a class="navbarcolors" style="margin:5px;" href="/register">Sign Up</a></li>
-                                <li><a class="navbarcolors" style="margin:5px;" href="/login">Log In</a></li>
+                                <li><a class="navbarTextColor" style="margin:5px;" href="/register">Sign Up</a></li>
+                                <li><a class="navbarTextColor" style="margin:5px;" href="/login">Log In</a></li>
                             <%}else{%>
-                                <li><a class="navbarcolors" style="margin:5px;">Current user: <%= currentUser.username %></a></li>
-                                <li><a class="navbarcolors" style="margin:5px;" href="/logout">Log Out</a></li>
+                                <li><a class="navbarTextColor" style="margin:5px;">Current user: <%= currentUser.username %></a></li>
+                                <li><a class="navbarTextColor" style="margin:5px;" href="/logout">Log Out</a></li>
                             <%}%>
                         </ul>
                     </div>
