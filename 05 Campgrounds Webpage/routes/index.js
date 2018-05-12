@@ -11,20 +11,29 @@ router.get("/", function(req, res){
 
 // AUTHENTICATION ROUTES.
 router.get("/register", function(req, res){
+    req.flash("error", "Sign-in was unsuccessful.");
     res.render("register");
 });
+
 // HANDLE SIGN-UP LOGIC.
 router.post("/register", function(req, res){
     var newUser = new User({username: req.body.username});
     User.register(newUser, req.body.password, function(err, user){
         if(err){
             console.log(err);
+            req.flash("error", "Sign-in was unsuccessful.");
+
             return res.render("register");
         }
         passport.authenticate("local")(req, res, function(){
             req.flash("success", "Successful log in");
 
+            //Ensure that after successful sign-in the user will not go back to sign-in page.
+            if(beforePreviousURL === "/register"){
+                res.redirect("/campgrounds")
+            }
             res.redirect(req.session.returnTo || beforePreviousURL);
+
             delete req.session.returnTo;
         });
     });
@@ -44,6 +53,10 @@ router.post("/login",
         failureRedirect: "/login"
     }), function(req, res){
         req.flash("success", "Successful log in");
+
+        if(beforePreviousURL === "/login"){
+            beforePreviousURL = "/campgrounds"
+        }
 
         res.redirect(req.session.returnTo || beforePreviousURL);
         delete req.session.returnTo;

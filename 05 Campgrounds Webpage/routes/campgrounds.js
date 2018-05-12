@@ -27,6 +27,7 @@ router.post("/", middleware.isLoggedIn, function(req, res){
     var name = req.body.name;
     var image = req.body.image;
     var description = req.body.description;
+    var price = req.body.price;
 
     delete req.session.returnTo;
 
@@ -37,7 +38,7 @@ router.post("/", middleware.isLoggedIn, function(req, res){
     };
 
     var newCampground = {name: name, image: image,
-        description: description, author: thisAuthor};
+        description: description, author: thisAuthor, price: price};
     Campground.create(newCampground, function(err){
         if(err){
             req.flash("error", err);
