@@ -6,6 +6,7 @@ var data = [
     {
         name: "Sosnowiec",
         image: "1.jpg",
+        price: 22.50,
         author: {
             username: "admin",
             id: "5ae4fa1736273b2468e3c92f"
@@ -15,6 +16,7 @@ var data = [
     {
         name: "Radom",
         image: "2.jpg",
+        price: 18.70,
         author: {
             username: "admin",
             id: "5ae4fa1736273b2468e3c92f"
@@ -24,6 +26,7 @@ var data = [
     {
         name: "Kielce",
         image: "3.jpg",
+        price: 11.67,
         author: {
             username: "admin",
             id: "5ae4fa1736273b2468e3c92f"
