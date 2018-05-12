@@ -25,7 +25,8 @@
                                 <li><a class="navbarTextColor" style="margin:5px;" href="/register">Sign Up</a></li>
                                 <li><a class="navbarTextColor" style="margin:5px;" href="/login">Log In</a></li>
                             <%}else{%>
-                                <li><a class="navbarTextColor" style="margin:5px;">Current user: <%= currentUser.username %></a></li>
+                                <li class="navbarTextColor"><a
+                                            style="margin:5px;">CURRENT USER: <%= currentUser.username.toUpperCase() %></a></li>
                                 <li><a class="navbarTextColor" style="margin:5px;" href="/logout">Log Out</a></li>
                             <%}%>
                         </ul>
