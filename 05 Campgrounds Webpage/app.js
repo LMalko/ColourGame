@@ -29,8 +29,9 @@ app.use(flash());
 
 
 
-// Clear database.
-seedDB();
+// Clear database & and populate. Commented out to save new objects permanently.
+
+// seedDB();
 
 mongoose.connect("mongodb://localhost:/campgroundsDB");
 
