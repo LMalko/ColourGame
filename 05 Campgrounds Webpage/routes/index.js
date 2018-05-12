@@ -54,6 +54,10 @@ router.post("/login",
     }), function(req, res){
         req.flash("success", "Successful log in");
 
+        if(beforePreviousURL === "/login"){
+            beforePreviousURL = "/campgrounds"
+        }
+
         res.redirect(req.session.returnTo || beforePreviousURL);
         delete req.session.returnTo;
     });
