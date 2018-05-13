@@ -27,12 +27,12 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li><a class="whiteTextColor navbarMargin" href="/campgrounds">Campgrounds</a></li>
+                <li><a class="whiteTextColor <%= thisURL === "/campgrounds/" ? "redTextColor": " "%> navbarMargin" href="/campgrounds">Campgrounds</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <%if(!currentUser){%>
-                <li><a class="whiteTextColor navbarMargin"  href="/register">Sign Up</a></li>
-                <li><a class="whiteTextColor navbarMargin"  href="/login">Log In</a></li>
+                <li><a class="whiteTextColor <%= thisURL === "/register" ? "redTextColor": " "%> navbarMargin"  href="/register">Sign Up</a></li>
+                <li><a class="whiteTextColor <%= thisURL === "/login" ? "redTextColor": " "%> navbarMargin"  href="/login">Log In</a></li>
                 <%}else{%>
                 <li class="whiteTextColor navbarMargin" ><a>CURRENT USER: <%= currentUser.username.toUpperCase() %>
                     </a>
