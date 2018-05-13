@@ -38,10 +38,10 @@
                 <li><a class="whiteTextColor <%= thisURL === "/register" ? "redTextColor": " "%> navbarMargin"  href="/register">Sign Up</a></li>
                 <li><a class="whiteTextColor <%= thisURL === "/login" ? "redTextColor": " "%> navbarMargin"  href="/login">Log In</a></li>
                 <%}else{%>
-                <li class="whiteTextColor navbarMargin" ><a>CURRENT USER: <%= currentUser.username.toUpperCase() %>
+                <li class="limeTextColor navbarMargin" ><a>CURRENT USER: <%= currentUser.username.toUpperCase() %>
                     </a>
                 </li>
-                <li><a class="whiteTextColor navbarMargin" href="/logout">Log Out</a></li>
+                <li class="navbarMargin"><a class="whiteTextColor"href="/logout">Log Out</a></li>
                 <%}%>
             </ul>
         </div>
