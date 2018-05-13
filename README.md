@@ -8,8 +8,8 @@ Installation:
 - mongod, mongo
 - go to "http://localhost:8080/"
 
-> Genesis user: admin - symetria
-> Save database: mongodump -d campgroundsDB
+> Genesis user: admin - symetria<br>
+> Save database: mongodump -d campgroundsDB<br>
 > Restore database: mongorestore -d campgroundsDB .
 
 
