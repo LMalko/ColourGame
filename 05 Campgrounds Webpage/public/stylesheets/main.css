@@ -18,6 +18,10 @@ body{
     color: red;
 }
 
+.limeTextColor{
+    color: lawngreen;
+}
+
 .dummyContainer{
     margin-bottom: 100px;
 }
