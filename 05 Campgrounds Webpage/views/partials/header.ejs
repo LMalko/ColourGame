@@ -12,12 +12,12 @@
                 <div class="container-fluid">
 
                     <div class="navbar-header">
-                        <a class="navbar-brand whiteTextColor" href="/">Campgrounds</a>
+                        <a class="navbar-brand whiteTextColor" href="/">HOME</a>
                     </div>
 
                     <div class="collapse navbar-collapse" >
                         <ul class="navbar-nav mr-auto">
-                            <!--<li><a class="navbarcolors" href="#">About</a></li>-->
+                            <li><a class="whiteTextColor" href="/campgrounds">Campgrounds</a></li>
                             <!--<li><a class="navbarcolors" href="#">Contact</a></li>-->
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
@@ -26,7 +26,9 @@
                                 <li><a class="whiteTextColor" style="margin:5px;" href="/login">Log In</a></li>
                             <%}else{%>
                                 <li class="whiteTextColor"><a
-                                            style="margin:5px;">CURRENT USER: <%= currentUser.username.toUpperCase() %></a></li>
+                                            style="margin:5px;">CURRENT USER: <%= currentUser.username.toUpperCase() %>
+                                                                                </a>
+                                </li>
                                 <li><a class="whiteTextColor" style="margin:5px;" href="/logout">Log Out</a></li>
                             <%}%>
                         </ul>
