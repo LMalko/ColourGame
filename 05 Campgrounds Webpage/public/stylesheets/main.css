@@ -14,6 +14,10 @@ body{
     color: white;
 }
 
+.redTextColor{
+    color: red;
+}
+
 .bodyNavbarMargin{
     margin-bottom: 30px;
 }
