@@ -5,12 +5,16 @@
     <link rel="stylesheet" href="/bootstrap.css">
     <link rel="stylesheet" href="/stylesheets/main.css">
 
+    <!--Both necessary for hamburger-->
     <script src="/jquery-3.3.1.js"></script>
     <script src="/bootstrap.min.js"></script>
 
+    <!-- Make site responsive on mobile/tablet part 1-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark navbarcolors bodyNavbarMargin">
+<nav class="navbar navbar-expand-lg navbar-dark navbarcolors bodyNavbarMargin fixed-top">
     <div class="container-fluid">
 
         <div class="navbar-header">
@@ -34,15 +38,19 @@
                 <li><a class="whiteTextColor <%= thisURL === "/register" ? "redTextColor": " "%> navbarMargin"  href="/register">Sign Up</a></li>
                 <li><a class="whiteTextColor <%= thisURL === "/login" ? "redTextColor": " "%> navbarMargin"  href="/login">Log In</a></li>
                 <%}else{%>
-                <li class="whiteTextColor navbarMargin" ><a>CURRENT USER: <%= currentUser.username.toUpperCase() %>
+                <li class="limeTextColor navbarMargin" ><a>CURRENT USER: <%= currentUser.username.toUpperCase() %>
                     </a>
                 </li>
-                <li><a class="whiteTextColor navbarMargin" href="/logout">Log Out</a></li>
+                <li class="navbarMargin"><a class="whiteTextColor"href="/logout">Log Out</a></li>
                 <%}%>
             </ul>
         </div>
     </div>
 </nav>
+
+<div class="container dummyContainer">
+
+</div>
 
 <!--Flash message-->
 <div class="container">

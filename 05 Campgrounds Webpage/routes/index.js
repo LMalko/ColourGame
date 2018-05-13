@@ -11,7 +11,7 @@ router.get("/", function(req, res){
 
 // AUTHENTICATION ROUTES.
 router.get("/register", function(req, res){
-    req.flash("error", "Sign-in was unsuccessful.");
+    // req.flash("error", "Sign-in was unsuccessful.");
     res.render("register");
 });
 
@@ -21,12 +21,12 @@ router.post("/register", function(req, res){
     User.register(newUser, req.body.password, function(err, user){
         if(err){
             console.log(err);
-            req.flash("error", "Sign-in was unsuccessful.");
+            // req.flash("error", "Sign-in was unsuccessful.");
 
-            return res.render("register");
+            return res.render("register", {error: err.message});
         }
         passport.authenticate("local")(req, res, function(){
-            req.flash("success", "Successful log in");
+            req.flash("success", req.body.username + " has successfully signed up");
 
             //Ensure that after successful sign-in the user will not go back to sign-in page.
             if(beforePreviousURL === "/register"){
@@ -41,7 +41,11 @@ router.post("/register", function(req, res){
 
 // SHOW LOGIN FORM.
 router.get("/login", function(req, res){
-    res.render("login");
+    if(previousURL === "/login" && beforePreviousURL === "/login"){
+        res.render("login", {error: "Invalid username or password"});
+    }else{
+        res.render("login");
+    }
 });
 
 
@@ -52,7 +56,7 @@ router.post("/login",
         // successRedirect: "/campgrounds",
         failureRedirect: "/login"
     }), function(req, res){
-        req.flash("success", "Successful log in");
+        req.flash("success", req.body.username + " has successfully logged in");
 
         if(beforePreviousURL === "/login"){
             beforePreviousURL = "/campgrounds"

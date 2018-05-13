@@ -8,6 +8,11 @@ Installation:
 - mongod, mongo
 - go to "http://localhost:8080/"
 
+- Genesis user: admin - symetria
+- Save database: mongodump -d campgroundsDB
+- Restore database: mongorestore -d campgroundsDB .
+
+
 # 4. MovieAPIApp (Node.js, Express.js, npm [ Request, ejs ])
 
 Movie search engine.
