@@ -62,7 +62,7 @@ router.post("/login",
             beforePreviousURL = "/campgrounds"
         }
 
-        res.redirect(req.session.returnTo || beforePreviousURL);
+        res.redirect(beforePreviousURL);
         delete req.session.returnTo;
     });
 
