@@ -77,15 +77,27 @@ router.post("/", middleware.isLoggedIn, function(req, res){
 
 // SHOW - shows more info about one campground.
 router.get("/:id", function(req, res){
+    var campgroundsContainer = [];
+
+    // Assign all campgrounds to a variable.
+    Campground.find(function(err, allCampgrounds) {
+        if (err) {
+            console.log(err);
+        } else {
+            campgroundsContainer = allCampgrounds;
+        }
+    });
+
     Campground.findById(req.params.id).populate("comments").exec(
         function(err, foundCampground){
             if(err){
                 console.log(err);
             } else{
-                res.render("campgrounds/show", {campground: foundCampground});
+                res.render("campgrounds/show",
+                    {campground: foundCampground,
+                        campgrounds: campgroundsContainer});
             }
         });
-    req.params.id
 });
 
 // Edit campground route, submits the form.
