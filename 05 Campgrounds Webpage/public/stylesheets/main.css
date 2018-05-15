@@ -22,6 +22,10 @@ body{
     color: lawngreen;
 }
 
+.showCampImage{
+    height: 500px;
+}
+
 .dummyContainer{
     margin-bottom: 100px;
 }
