@@ -26,51 +26,34 @@ router.get("/new", middleware.isLoggedIn, function(req, res){
 router.post("/", middleware.isLoggedIn, function(req, res){
 
     var name = req.body.name;
-    var flag = false;
+    // Make sure the string 1st letter is Upper & the rest Lower case.
+    name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
 
-    Campground.find(function(err, allCampgrounds) {
+    var image = req.body.image;
+    var description = req.body.description;
+    var price = req.body.price;
+
+    delete req.session.returnTo;
+
+    // Assign current user to this new campground.
+    var thisAuthor = {
+        id: req.user._id,
+        username: req.user.username
+    };
+
+    var newCampground = {
+        name: name, image: image,
+        description: description, author: thisAuthor, price: price
+    };
+
+    Campground.create(newCampground, function (err) {
         if (err) {
+            req.flash("error", "This name was already taken");
+            res.redirect("/campgrounds/new");
             console.log(err);
         } else {
-            // Check if name already taken.
-            allCampgrounds.forEach(function (campground) {
-                if (campground.name === name) {
-                    flag = true
-                }
-            });
-                            // If name was previously taken, redirect
-                            if(flag){
-                                req.flash("error", "This name was already taken");
-                                res.redirect("/campgrounds/new");
-                            //    If name is unique, create & save new campground.
-                            } else {
-                                var image = req.body.image;
-                                var description = req.body.description;
-                                var price = req.body.price;
-
-                                delete req.session.returnTo;
-
-                                // Assign current user to this new campground.
-                                var thisAuthor = {
-                                    id: req.user._id,
-                                    username: req.user.username
-                                };
-
-                                var newCampground = {
-                                    name: name, image: image,
-                                    description: description, author: thisAuthor, price: price
-                                };
-
-                                Campground.create(newCampground, function (err) {
-                                    if (err) {
-                                        req.flash("error", err);
-                                        console.log(err);
-                                    } else {
-                                        req.flash("success", "Campground was added");
-                                        res.redirect("/campgrounds");
-                                    }
-                                });
-                            }
+            req.flash("success", "Campground was added");
+            res.redirect("/campgrounds");
         }
     });
 });
