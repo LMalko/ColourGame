@@ -1,4 +1,4 @@
-# 5. Campgrounds Webpage (Node.js, Express 5.6.0, Bootstrap 4, MongoDB, REST, npm [ ejs, body-parser, mongoose, passport, passport-local, passport-local-mongoose, express-session, method-override, connect-flash])
+# 5. Campgrounds Webpage (Node.js, Express 5.6.0, Bootstrap 4, MongoDB, REST, npm [ ejs, body-parser, mongoose, passport, passport-local, passport-local-mongoose, express-session, method-override, connect-flash, dotenv])
 
 Installation:
 - install Node.js, MongoDB
