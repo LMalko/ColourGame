@@ -54,3 +54,9 @@ body{
 .Inline{
     display: inline;
 }
+
+/* Google Maps */
+#map {
+    height: 200px;
+    width: 100%;
+}
