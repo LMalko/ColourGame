@@ -1,5 +1,6 @@
 require('dotenv').config();
 
+
 var express = require("express");
           app = express();
           bodyParser = require("body-parser");
@@ -17,6 +18,8 @@ var express = require("express");
           methodOverride = require("method-override");
 
           flash = require("connect-flash");
+
+          app.locals.moment = require('moment');
 
 
 var commentRoutes = require("./routes/comments");

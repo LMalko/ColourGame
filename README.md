@@ -1,4 +1,4 @@
-# 5. Campgrounds Webpage (Node.js, Express 5.6.0, Bootstrap 4, MongoDB, REST, npm [ ejs, body-parser, mongoose, passport, passport-local, passport-local-mongoose, express-session, method-override, connect-flash, dotenv, node-geocoder])
+# 5. Campgrounds Webpage (Node.js, Express 5.6.0, Bootstrap 4, MongoDB, REST, npm [ ejs, body-parser, mongoose, passport, passport-local, passport-local-mongoose, express-session, method-override, connect-flash, dotenv, node-geocoder, moment])
 
 Installation:
 - install Node.js, MongoDB
@@ -12,7 +12,7 @@ Installation:
 > Save database: mongodump -d campgroundsDB<br>
 > Restore database: mongorestore -d campgroundsDB .
 
-- Geocoding api
+- Geocoding API
 - Maps Javascript API
 
 
