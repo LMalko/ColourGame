@@ -37,7 +37,7 @@
 
                 <div class="container pb-3 pl-3">
                     <% if(currentUser && campground.author.id.equals(currentUser._id) ||
-                            currentUser && currentUser._id.equals("5af6d7bc44edfe29d0d9e31f")){ %>
+                            currentUser && currentUser.isAdmin){ %>
                         <form class="Inline" action="/campgrounds/<%= campground._id %>/edit"
                               method="GET">
                             <button class="btn-group btn-primary btn-lg">Edit campground</button>
@@ -74,7 +74,7 @@
                                     <%=comment.text%>
                                 </p>
                                 <% if(currentUser && comment.author.id.equals(currentUser._id) ||
-                                        currentUser && currentUser._id.equals("5af6d7bc44edfe29d0d9e31f")){ %>
+                                        currentUser && currentUser.isAdmin){ %>
 
                                     <form class="Inline"
                                           action="/campgrounds/<%= campground._id%>/comments/<%= comment._id%>/edit"
