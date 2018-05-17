@@ -12,6 +12,9 @@ Installation:
 - Save database: mongodump -d campgroundsDB
 - Restore database: mongorestore -d campgroundsDB .
 
+- Geocoding api
+- Maps Javascript API
+
 
 # 4. MovieAPIApp (Node.js, Express.js, npm [ Request, ejs ])
 
