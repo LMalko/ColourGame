@@ -18,6 +18,10 @@ body{
     color: red;
 }
 
+.showCampMargin{
+    margin-top: 10px;
+}
+
 .limeTextColor{
     color: lawngreen;
 }

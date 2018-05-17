@@ -5,6 +5,18 @@ var Campground = require("../models/campground");
 // it will automatically search for index.js.
 var middleware = require("../middleware");
 
+// For google map API
+var NodeGeocoder = require('node-geocoder');
+
+var options = {
+    provider: 'google',
+    httpAdapter: 'https',
+    apiKey: process.env.GEOCODER_API_KEY,
+    formatter: null
+};
+
+var geocoder = NodeGeocoder(options);
+
 // Show all campgrounds.
 
 router.get("/", function(req, res){
@@ -41,20 +53,31 @@ router.post("/", middleware.isLoggedIn, function(req, res){
         username: req.user.username
     };
 
-    var newCampground = {
-        name: name, image: image,
-        description: description, author: thisAuthor, price: price
-    };
-
-    Campground.create(newCampground, function (err) {
-        if (err) {
-            req.flash("error", "This name was already taken");
-            res.redirect("/campgrounds/new");
-            console.log(err);
-        } else {
-            req.flash("success", "Campground was added");
-            res.redirect("/campgrounds");
+    geocoder.geocode(req.body.location, function (err, data) {
+        if (err || !data.length) {
+            req.flash('error', 'Invalid address');
+            return res.redirect("/campgrounds/new");
         }
+        var lat = data[0].latitude;
+        var lng = data[0].longitude;
+        var location = data[0].formattedAddress;
+
+        var newCampground = {
+            name: name, image: image,
+            description: description, author: thisAuthor, price: price,
+            location: location, lat: lat, lng: lng
+        };
+
+        Campground.create(newCampground, function (err) {
+            if (err) {
+                req.flash("error", "This name was already taken");
+                res.redirect("/campgrounds/new");
+                console.log(err);
+            } else {
+                req.flash("success", "Campground was added");
+                res.redirect("/campgrounds");
+            }
+        });
     });
 });
 
@@ -94,19 +117,30 @@ router.get("/:id/edit", middleware.checkCampgroundOwnership, function(req, res){
 // Update campground route, receives the form.
 
 router.put("/:id", middleware.checkCampgroundOwnership, function(req,res){
+
+    geocoder.geocode(req.body.location, function (err, data) {
+        if (err || !data.length) {
+            req.flash('error', 'Invalid address');
+            return res.redirect('back');
+        }
+        req.body.campground.lat = data[0].latitude;
+        req.body.campground.lng = data[0].longitude;
+        req.body.campground.location = data[0].formattedAddress;
+
     // Find and update the correct campground and redirect.
     // Use mongoose built-in function.
 
-    Campground.findByIdAndUpdate(req.params.id,
-        req.body.campground,
-        function(err, updatedCampground){
-            if(err){
-                res.redirect("/campgrounds");
-            } else {
-                req.flash("success", "Campground edited");
+        Campground.findByIdAndUpdate(req.params.id,
+            req.body.campground,
+            function(err, updatedCampground){
+                if(err){
+                    res.redirect("/campgrounds");
+                } else {
+                    req.flash("success", "Campground edited");
 
-                res.redirect("/campgrounds/" + req.params.id)
-            }
+                    res.redirect("/campgrounds/" + req.params.id)
+                }
+        });
     });
 });
 
