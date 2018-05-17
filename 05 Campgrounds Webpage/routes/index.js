@@ -30,7 +30,7 @@ router.post("/register", function(req, res){
             req.flash("success", req.body.username + " has successfully signed up");
 
             //Ensure that after successful sign-in the user will not go back to sign-in page.
-            if(beforePreviousURL === "/register"){
+            if(beforePreviousURL !== "/campgrounds/*"){
                 res.redirect("/campgrounds")
             }
             res.redirect(req.session.returnTo || beforePreviousURL);
@@ -59,10 +59,6 @@ router.post("/login",
     }), function(req, res){
         req.flash("success", req.body.username + " has successfully logged in");
 
-        if(beforePreviousURL === "/login"){
-            beforePreviousURL = "/campgrounds"
-        }
-
         res.redirect(beforePreviousURL);
         delete req.session.returnTo;
     });
@@ -78,6 +74,7 @@ router.get("/logout", function(req, res){
 // EDIT user
 
 router.get("/editUser", middleware.isLoggedIn, function(req, res){
+    req.user.isAdmin = true;
     User.find({}, function(err, allUsers){
         if(err){
             console.log(err);
@@ -87,6 +84,31 @@ router.get("/editUser", middleware.isLoggedIn, function(req, res){
             } else {
                 res.redirect("campgrounds/");
             }
+        }
+    });
+});
+
+router.put("/editUser", function(req, res){
+
+    User.find({}, function(err, allUsers){
+        if(err){
+            console.log(err);
+        } else {
+            allUsers.forEach(function(user){
+                if(req.body.userName === user.username && req.body.userRole === "Admin"){
+                    console.log(user._id)
+                    user.isAdmin = true;
+                    User.findByIdAndUpdate(user._id, user,function(err, updatedUser){
+                        if(err){
+                            req.flash("error", err);
+                            res.redirect("/campgrounds");
+                        } else {
+                            req.flash("success", "User's role assigned");
+                            res.redirect("/campgrounds")
+                        }
+                    });
+                }
+            });
         }
     });
 });
