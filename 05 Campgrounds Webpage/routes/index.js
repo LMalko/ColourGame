@@ -78,7 +78,6 @@ router.get("/logout", function(req, res){
 // EDIT user
 
 router.get("/editUser", middleware.isLoggedIn, function(req, res){
-    req.user.isAdmin = true;
     User.find({}, function(err, allUsers){
         if(err){
             console.log(err);
@@ -115,6 +114,44 @@ router.put("/editUser", function(req, res){
         }
     });
 });
+
+router.get("/deleteUser", middleware.isLoggedIn, function(req, res){
+    User.find({}, function(err, allUsers){
+        if(err){
+            console.log(err);
+        } else {
+            if(req.user.isAdmin){
+                res.render("deleteUser", {allUsers: allUsers})
+            } else {
+                res.redirect("campgrounds/");
+            }
+        }
+    });
+});
+
+// Destroy user route, use PUT.
+router.put("/deleteUser", function(req, res){
+    User.find({}, function(err, allUsers){
+        if(err){
+            console.log(err);
+        } else {
+            allUsers.forEach(function(user){
+                if(req.body.userName === user.username){
+                    User.findByIdAndRemove(user._id,function(err){
+                        if(err){
+                            req.flash("error", err);
+                            res.redirect("/campgrounds");
+                        } else {
+                            req.flash("success", "User was deleted.");
+                            res.redirect("/campgrounds")
+                        }
+                    });
+                }
+            });
+        }
+    });
+});
+
 
 
 module.exports = router;
