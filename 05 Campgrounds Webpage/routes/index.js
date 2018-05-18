@@ -59,6 +59,10 @@ router.post("/login",
     }), function(req, res){
         req.flash("success", req.body.username + " has successfully logged in");
 
+        if(beforePreviousURL === "/login"){
+            beforePreviousURL = "/campgrounds"
+        }
+
         res.redirect(beforePreviousURL);
         delete req.session.returnTo;
     });
@@ -68,7 +72,7 @@ router.get("/logout", function(req, res){
     req.flash("success", "Successful log out");
 
     req.logout();
-    res.redirect(previousURL);
+    res.redirect("/campgrounds");
 });
 
 // EDIT user
@@ -96,7 +100,6 @@ router.put("/editUser", function(req, res){
         } else {
             allUsers.forEach(function(user){
                 if(req.body.userName === user.username && req.body.userRole === "Admin"){
-                    console.log(user._id)
                     user.isAdmin = true;
                     User.findByIdAndUpdate(user._id, user,function(err, updatedUser){
                         if(err){
