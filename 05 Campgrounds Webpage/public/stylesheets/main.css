@@ -13,7 +13,6 @@ body{
 .whiteTextColor{
     color: white;
 }
-
 #dropdownSpecs1{
     color: lawngreen;
 }
@@ -24,12 +23,6 @@ body{
     color: lawngreen;
 }
 #dropdownSpecs4{
-    color: lawngreen;
-}
-#dropdownSpecs5{
-    color: lawngreen;
-}
-#dropdownSpecs6{
     background: #302b63;
 }
 
@@ -56,10 +49,6 @@ body{
 
 .bodyNavbarMargin{
     margin-bottom: 30px;
-}
-
-.navbarMargin{
-    margin: 10px;
 }
 
 .NewPost{
