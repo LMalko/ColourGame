@@ -5,17 +5,12 @@
     <link rel="stylesheet" href="/bootstrap.css">
     <link rel="stylesheet" href="/stylesheets/main.css">
 
-    <!-- Make site responsive on mobile/tablet part 1-->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark navbarcolors bodyNavbarMargin fixed-top">
-    <div class="container-fluid">
 
-        <div class="navbar-header">
-            <a class="navbar-brand whiteTextColor navbarMargin" href="/">HOME</a>
-        </div>
+    <a class="navbar-brand whiteTextColor ml-2" href="/">Home</a>
+
 
         <!-- parameter 'data-target ' sets id which items will be inside hamburger -->
         <button class="navbar-toggler" type="button"
@@ -28,43 +23,39 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
 
-                <a class="whiteTextColor <%= thisURL === "/campgrounds/" ? "redTextColor": " "%>
-                            navbarMargin"
-                        href="/campgrounds">Campgrounds</a>
+                <a class="whiteTextColor <%= thisURL === "/campgrounds/" ? "redTextColor": " "%> ml-2"
+                                href="/campgrounds">Campgrounds</a>
 
             <ul class="navbar-nav mr-auto">
-
                 <% if(currentUser && currentUser.isAdmin){ %>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle dropdownSpecs"
+                <li class="nav-item dropdown ml-2">
+                    <a class="nav-link dropdown-toggle"
                        href="#" id="dropdownSpecs1" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Available actions
                     </a>
-                    <div class="dropdown-menu" id="dropdownSpecs6" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" id="dropdownSpecs4" href="/editUser">Assign user roles</a>
+                    <div class="dropdown-menu" id="dropdownSpecs4" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" id="dropdownSpecs2" href="/editUser">Assign user roles</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" id="dropdownSpecs5" href="#">Delete user</a>
+                        <a class="dropdown-item" id="dropdownSpecs3" href="#">Delete user</a>
                     </div>
                 </li>
                 <%}%>
-
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
                 <%if(!currentUser){%>
-                <li><a class="whiteTextColor <%= thisURL === "/register" ? "redTextColor": " "%> navbarMargin"
+                <li><a class="whiteTextColor <%= thisURL === "/register" ? "redTextColor": " "%> ml-2 mr-2"
                        href="/register">Sign Up</a></li>
-                <li><a class="whiteTextColor <%= thisURL === "/login" ? "redTextColor": " "%> navbarMargin"
+                <li><a class="whiteTextColor <%= thisURL === "/login" ? "redTextColor": " "%> ml-2 mr-2"
                        href="/login">Log In</a></li>
                 <%}else{%>
-                <li class="limeTextColor navbarMargin" >
+                <li class="limeTextColor ml-2 mr-3" >
                     <a>CURRENT USER: <%= currentUser.username.toUpperCase() %></a>
                 </li>
-                <li class="navbarMargin"><a class="whiteTextColor"href="/logout">Log Out</a></li>
+                <li class="ml-2 mr-3"><a class="whiteTextColor"href="/logout">Log Out</a></li>
                 <%}%>
             </ul>
         </div>
-    </div>
 </nav>
 
 
