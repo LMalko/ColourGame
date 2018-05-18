@@ -30,7 +30,7 @@ router.post("/register", function(req, res){
             req.flash("success", req.body.username + " has successfully signed up");
 
             //Ensure that after successful sign-in the user will not go back to sign-in page.
-            if(beforePreviousURL === "/register"){
+            if(beforePreviousURL !== "/campgrounds/*"){
                 res.redirect("/campgrounds")
             }
             res.redirect(req.session.returnTo || beforePreviousURL);
@@ -72,12 +72,13 @@ router.get("/logout", function(req, res){
     req.flash("success", "Successful log out");
 
     req.logout();
-    res.redirect(previousURL);
+    res.redirect("/campgrounds");
 });
 
 // EDIT user
 
 router.get("/editUser", middleware.isLoggedIn, function(req, res){
+    req.user.isAdmin = true;
     User.find({}, function(err, allUsers){
         if(err){
             console.log(err);
@@ -87,6 +88,30 @@ router.get("/editUser", middleware.isLoggedIn, function(req, res){
             } else {
                 res.redirect("campgrounds/");
             }
+        }
+    });
+});
+
+router.put("/editUser", function(req, res){
+
+    User.find({}, function(err, allUsers){
+        if(err){
+            console.log(err);
+        } else {
+            allUsers.forEach(function(user){
+                if(req.body.userName === user.username && req.body.userRole === "Admin"){
+                    user.isAdmin = true;
+                    User.findByIdAndUpdate(user._id, user,function(err, updatedUser){
+                        if(err){
+                            req.flash("error", err);
+                            res.redirect("/campgrounds");
+                        } else {
+                            req.flash("success", "User's role assigned");
+                            res.redirect("/campgrounds")
+                        }
+                    });
+                }
+            });
         }
     });
 });

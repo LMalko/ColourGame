@@ -14,6 +14,26 @@ body{
     color: white;
 }
 
+#dropdownSpecs1{
+    color: lawngreen;
+}
+#dropdownSpecs2{
+    color: lawngreen;
+}
+#dropdownSpecs3{
+    color: lawngreen;
+}
+#dropdownSpecs4{
+    color: lawngreen;
+}
+#dropdownSpecs5{
+    color: lawngreen;
+}
+#dropdownSpecs6{
+    background: #302b63;
+}
+
+
 .redTextColor{
     color: red;
 }
