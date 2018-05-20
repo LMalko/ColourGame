@@ -18,7 +18,14 @@ router.get("/register", function(req, res){
 
 // HANDLE SIGN-UP LOGIC.
 router.post("/register", function(req, res){
-    var newUser = new User({username: req.body.username});
+    var newUser = new User({
+        username: req.body.username,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        avatar: req.body.avatar
+    });
+
     User.register(newUser, req.body.password, function(err, user){
         if(err){
             console.log(err);
@@ -83,7 +90,7 @@ router.get("/editUser", middleware.isLoggedIn, function(req, res){
             console.log(err);
         } else {
             if(req.user.isAdmin){
-                res.render("editUser", {allUsers: allUsers})
+                res.render("user/edit", {allUsers: allUsers})
             } else {
                 res.redirect("campgrounds/");
             }
@@ -115,13 +122,13 @@ router.put("/editUser", function(req, res){
     });
 });
 
-router.get("/deleteUser", middleware.isLoggedIn, function(req, res){
+router.get("/destroyUser", middleware.isLoggedIn, function(req, res){
     User.find({}, function(err, allUsers){
         if(err){
             console.log(err);
         } else {
             if(req.user.isAdmin){
-                res.render("deleteUser", {allUsers: allUsers})
+                res.render("user/destroy", {allUsers: allUsers})
             } else {
                 res.redirect("campgrounds/");
             }
@@ -130,7 +137,7 @@ router.get("/deleteUser", middleware.isLoggedIn, function(req, res){
 });
 
 // Destroy user route, use PUT.
-router.put("/deleteUser", function(req, res){
+router.put("/destroyUser", function(req, res){
     User.find({}, function(err, allUsers){
         if(err){
             console.log(err);
@@ -152,6 +159,18 @@ router.put("/deleteUser", function(req, res){
     });
 });
 
+
+// User profile
+
+router.get("users/:id", function(req, res){
+    User.findByID(req.params.id, function(err, foundUser){
+        if(err){
+            req.flash("error", "Something went wrong with user search.")
+            res.redirect(previousURL)
+        }
+        res.render("users/show", {user: foundUser})
+    })
+});
 
 
 module.exports = router;
