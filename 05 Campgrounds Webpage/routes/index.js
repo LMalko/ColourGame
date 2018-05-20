@@ -25,7 +25,7 @@ router.post("/register", function(req, res){
         email: req.body.email,
         avatar: req.body.avatar
     });
-    
+
     User.register(newUser, req.body.password, function(err, user){
         if(err){
             console.log(err);
