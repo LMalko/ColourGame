@@ -90,7 +90,7 @@ router.get("/editUser", middleware.isLoggedIn, function(req, res){
             console.log(err);
         } else {
             if(req.user.isAdmin){
-                res.render("editUser", {allUsers: allUsers})
+                res.render("user/edit", {allUsers: allUsers})
             } else {
                 res.redirect("campgrounds/");
             }
@@ -122,13 +122,13 @@ router.put("/editUser", function(req, res){
     });
 });
 
-router.get("/deleteUser", middleware.isLoggedIn, function(req, res){
+router.get("/destroyUser", middleware.isLoggedIn, function(req, res){
     User.find({}, function(err, allUsers){
         if(err){
             console.log(err);
         } else {
             if(req.user.isAdmin){
-                res.render("deleteUser", {allUsers: allUsers})
+                res.render("user/destroy", {allUsers: allUsers})
             } else {
                 res.redirect("campgrounds/");
             }
@@ -137,7 +137,7 @@ router.get("/deleteUser", middleware.isLoggedIn, function(req, res){
 });
 
 // Destroy user route, use PUT.
-router.put("/deleteUser", function(req, res){
+router.put("/destroyUser", function(req, res){
     User.find({}, function(err, allUsers){
         if(err){
             console.log(err);
