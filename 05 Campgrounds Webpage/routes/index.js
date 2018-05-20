@@ -160,5 +160,17 @@ router.put("/deleteUser", function(req, res){
 });
 
 
+// User profile
+
+router.get("users/:id", function(req, res){
+    User.findByID(req.params.id, function(err, foundUser){
+        if(err){
+            req.flash("error", "Something went wrong with user search.")
+            res.redirect(previousURL)
+        }
+        res.render("users/show", {user: foundUser})
+    })
+});
+
 
 module.exports = router;
