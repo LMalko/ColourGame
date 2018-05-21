@@ -31,7 +31,10 @@
                 <p class="pl-3 pr-3"><%= campground.description %></p>
 
                 <div class="pr-3">
-                <p class="float-right"><em>Posted by: <%= campground.author.username %>,
+                <p class="float-right"><em>Posted by:
+                        <a class="whiteTextColor" href="/users/<%= campground.author.id %>">
+                            <%= campground.author.username + ","%>
+                        </a>
                         <%= moment(campground.createdAt).fromNow() %></em></p>
                 </div>
 
@@ -68,8 +71,17 @@
                         <div class="row mb-2">
                             <div class="col-md-12">
                                 <p>
-                                    <strong><%=comment.author.username%></strong>
-                                    <span class="float-right"><em><%= moment(comment.createdAt).fromNow() %></em></span>
+                                    <strong>
+                                        <a class="whiteTextColor" href="/users/<%= campground.author.id %>">
+                                            <%=comment.author.username%>
+                                        </a></strong>
+
+                                    <span class="float-right">
+                                        <em>
+                                            <%= moment(comment.createdAt).fromNow() %>
+                                        </em>
+                                    </span>
+
                                     <br>
                                     <%=comment.text%>
                                 </p>

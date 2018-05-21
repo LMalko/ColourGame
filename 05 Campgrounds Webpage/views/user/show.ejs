@@ -1,0 +1,32 @@
+<% include ../partials/header %>
+
+<header class="container">
+    <div class="jumbotron">
+        <div class="row">
+                        <div class="col-md-4">
+                                <h1><%= user.username%></h1>
+                                <img class="profilePicture" src="<%= user.avatar %>" alt="avatar image">
+                        </div>
+                        <div class="col-md-8">
+                            <h1><%= "First name:  " + user.firstName %></h1>
+                            <h1><%= "Last name:  " + user.lastName %></h1>
+                            <h1><%= "email:  " + user.email %></h1>
+                            <%if(user.isAdmin){ role = "admin" }else{ role = "default"}%>
+                            <h1><%= "Role: " + role %></h1>
+
+                        </div>
+
+        </div>
+    </div>
+    <div class="container" style="text-align: center">
+        <a class="centerPosition" href="<%= previousURL%>">Go back</a>
+    </div>
+
+
+</header>
+
+
+
+
+
+<% include ../partials/footer %>

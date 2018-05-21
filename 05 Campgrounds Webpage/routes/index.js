@@ -105,8 +105,15 @@ router.put("/editUser", function(req, res){
             console.log(err);
         } else {
             allUsers.forEach(function(user){
-                if(req.body.userName === user.username && req.body.userRole === "Admin"){
-                    user.isAdmin = true;
+                if(req.body.userName === user.username){
+                    
+                    // if(req.body.userRole === "Admin"){
+                    //     user.isAdmin = true;
+                    // } else{
+                    //     user.isAdmin = false;
+                    // }
+                    user.isAdmin = req.body.userRole === "Admin";
+                    
                     User.findByIdAndUpdate(user._id, user,function(err, updatedUser){
                         if(err){
                             req.flash("error", err);
@@ -162,13 +169,14 @@ router.put("/destroyUser", function(req, res){
 
 // User profile
 
-router.get("users/:id", function(req, res){
-    User.findByID(req.params.id, function(err, foundUser){
+router.get("/users/:id", function(req, res){
+
+    User.findById(req.params.id, function(err, foundUser){
         if(err){
             req.flash("error", "Something went wrong with user search.")
             res.redirect(previousURL)
         }
-        res.render("users/show", {user: foundUser})
+        res.render("user/show", {user: foundUser})
     })
 });
 
