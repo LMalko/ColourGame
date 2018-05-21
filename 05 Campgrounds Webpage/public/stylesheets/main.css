@@ -73,3 +73,8 @@ body{
     height: 200px;
     width: 100%;
 }
+
+.profilePicture{
+    height: 200px;
+    width: 200px;
+}
