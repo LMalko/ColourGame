@@ -162,13 +162,14 @@ router.put("/destroyUser", function(req, res){
 
 // User profile
 
-router.get("users/:id", function(req, res){
-    User.findByID(req.params.id, function(err, foundUser){
+router.get("/users/:id", function(req, res){
+
+    User.findById(req.params.id, function(err, foundUser){
         if(err){
             req.flash("error", "Something went wrong with user search.")
             res.redirect(previousURL)
         }
-        res.render("users/show", {user: foundUser})
+        res.render("user/show", {user: foundUser})
     })
 });
 
