@@ -83,3 +83,7 @@ body{
     height: 100px;
     width: 150px;
 }
+
+.orangeredTextColour{
+    color: orangered;
+}
