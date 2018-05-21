@@ -2,6 +2,8 @@ var express = require("express");
 var router = express.Router();
 var passport = require("passport");
 var User = require("../models/user");
+var Campground = require("../models/campground");
+var Comment = require("../models/comment");
 var middleware = require("../middleware");
 
 router.get("/", function(req, res){
@@ -106,7 +108,7 @@ router.put("/editUser", function(req, res){
         } else {
             allUsers.forEach(function(user){
                 if(req.body.userName === user.username){
-                    
+
                     // if(req.body.userRole === "Admin"){
                     //     user.isAdmin = true;
                     // } else{
@@ -173,11 +175,23 @@ router.get("/users/:id", function(req, res){
 
     User.findById(req.params.id, function(err, foundUser){
         if(err){
-            req.flash("error", "Something went wrong with user search.")
-            res.redirect(previousURL)
+            req.flash("error", "Something went wrong with user search.");
+            return res.redirect(previousURL)
         }
-        res.render("user/show", {user: foundUser})
-    })
+            Campground.find().where('author.id').equals(foundUser._id).exec(function(err, campgrounds) {
+                if(err){
+                    req.flash("error", "Something went wrong with user'c campground search.");
+                    return res.redirect(previousURL)
+                }
+                Comment.find().where("author.id").equals(foundUser._id).exec(function(err, comments){
+                    if(err){
+                        req.flash("error", "Something went wrong with user'c comments search.");
+                        return res.redirect(previousURL)
+                    }
+                    res.render("user/show", {user: foundUser, campgrounds: campgrounds, comments: comments})
+                });
+            });
+    });
 });
 
 
