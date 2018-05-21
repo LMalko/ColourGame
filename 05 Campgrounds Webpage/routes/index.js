@@ -113,7 +113,7 @@ router.put("/editUser", function(req, res){
                     //     user.isAdmin = false;
                     // }
                     user.isAdmin = req.body.userRole === "Admin";
-
+                    
                     User.findByIdAndUpdate(user._id, user,function(err, updatedUser){
                         if(err){
                             req.flash("error", err);
