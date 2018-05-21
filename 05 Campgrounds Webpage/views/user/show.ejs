@@ -1,7 +1,7 @@
 <% include ../partials/header %>
 
-<header class="jumbotron">
-    <div class="container ">
+<header class="container">
+    <div class="jumbotron">
         <div class="row">
                         <div class="col-md-4">
                                 <h1><%= user.username%></h1>
@@ -14,13 +14,14 @@
                             <%if(user.isAdmin){ role = "admin" }else{ role = "default"}%>
                             <h1><%= "Role: " + role %></h1>
 
-                            <p>
-                                <a href="<%= previousURL%>">Go back</a>
-                            </p>
                         </div>
 
         </div>
     </div>
+    <div class="container" style="text-align: center">
+        <a class="centerPosition" href="<%= previousURL%>">Go back</a>
+    </div>
+
 
 </header>
 
