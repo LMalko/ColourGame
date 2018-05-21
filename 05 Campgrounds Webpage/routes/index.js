@@ -105,8 +105,15 @@ router.put("/editUser", function(req, res){
             console.log(err);
         } else {
             allUsers.forEach(function(user){
-                if(req.body.userName === user.username && req.body.userRole === "Admin"){
-                    user.isAdmin = true;
+                if(req.body.userName === user.username){
+                    
+                    // if(req.body.userRole === "Admin"){
+                    //     user.isAdmin = true;
+                    // } else{
+                    //     user.isAdmin = false;
+                    // }
+                    user.isAdmin = req.body.userRole === "Admin";
+
                     User.findByIdAndUpdate(user._id, user,function(err, updatedUser){
                         if(err){
                             req.flash("error", err);
