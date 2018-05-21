@@ -75,15 +75,67 @@ body{
 }
 
 .profilePicture{
-    height: max-content;
-    width: max-content;
+    padding: 20px;
+    min-height: 379px;
+    width: 100%;
 }
 
 .profileCampPicture{
     height: 100px;
-    width: 150px;
+    width: 85%;
 }
 
+.profilePageLi{
+    text-align: center;
+    width: 85%;
+}
 .orangeredTextColour{
     color: orangered;
+}
+
+.profilePageCard{
+    min-height: 380px;
+    text-align: center;
+}
+
+.profilePageCard2{
+    text-align: center;
+}
+
+.profilePageJumbotron{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: #200122;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #6f0000, #200122);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #6f0000, #200122); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.profileInfo{
+    font-family: "Berlin Sans FB";
+    padding-top: 10px;
+    font-size: 100px;
+    word-wrap: break-word;
+}
+
+.userActivityInfo{
+    font-family: "Berlin Sans FB";
+    padding-top: 10px;
+    font-size: 22px;
+    word-wrap: break-word;
+}
+
+.ulNoDots{
+    list-style-type: none;
+}
+
+.cardBackground{
+    background: #200122;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #6f0000, #200122);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #6f0000, #200122); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.profileInfoMargin{
+    margin-bottom: 30px;
 }

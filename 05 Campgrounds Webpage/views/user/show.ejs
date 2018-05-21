@@ -1,33 +1,37 @@
 <% include ../partials/header %>
 
 <header class="container">
-    <div class="jumbotron">
+    <div class="jumbotron profilePageJumbotron" >
         <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-4" >
+                            <div class="card cardBackground profilePageCard">
                                 <img class="profilePicture" src="<%= user.avatar %>" alt="avatar image">
+                            </div>
                         </div>
-                        <div class="col-md-8">
-                            <h1><%= "Username: " + user.username%></h1>
-                            <h1><%= "First name:  " + user.firstName %></h1>
-                            <h1><%= "Last name:  " + user.lastName %></h1>
-                            <h1><%= "email:  " + user.email %></h1>
-                            <%if(user.isAdmin){ role = "admin" }else{ role = "default"}%>
-                            <h1><%= "Role: " + role %></h1>
+                        <div class="col-md-8 ">
+                            <div class="card text-white cardBackground profilePageCard profileInfo">
+                                <h1 class="profileInfoMargin"><%= "Username: " + user.username%></h1>
+                                <h1 class="profileInfoMargin"><%= "First name:  " + user.firstName %></h1>
+                                <h1 class="profileInfoMargin"><%= "Last name:  " + user.lastName %></h1>
+                                <h1 class="profileInfoMargin"><%= "email:  " + user.email %></h1>
+                                <%if(user.isAdmin){ role = "admin" }else{ role = "default"}%>
+                                <h1><%= "Role: " + role %></h1>
+                            </div>
 
                         </div>
 
         </div>
     </div>
 
-    <div class="jumbotron">
+    <div class="jumbotron profilePageJumbotron">
         <div class="row">
             <div class="col-md-4">
 
-                <div class="card text-white bg-success">
-                    <h1>User's campgrounds</h1>
-                    <ul style="list-style-type: none;">
+                <div class="card text-white cardBackground userActivityInfo">
+                    <h1 class="profilePageCard2">Campgrounds</h1>
+                    <ul class="ulNoDots">
                         <% campgrounds.forEach(function(campground) {%>
-                        <li><a href="/campgrounds/<%=campground.id%>"><%= campground.name%></a></li>
+                        <li class="profilePageLi"><a href="/campgrounds/<%=campground.id%>"><%= campground.name%></a></li>
                         <img class="profileCampPicture"
                              src="/campgrounds/<%=campground.image%>"
                              alt="<%=campground.image%>">
@@ -39,12 +43,12 @@
             </div>
             <div class="col-md-8">
 
-                <div class="card text-white bg-success">
-                    <h1>User's comments</h1>
+                <div class="card text-white cardBackground userActivityInfo">
+                    <h1 class="profilePageCard2">Comments</h1>
                     <ul>
                         <% comments.reverse() %>
                         <% comments.forEach(function(comment) {%>
-                        <li><%=comment.text%><br><em>
+                        <li>'<%=comment.text%>'<br><em class="limeTextColor">
                                 <%= moment(comment.createdAt).fromNow() %>
                             </em></li>
                         <% }); %>
