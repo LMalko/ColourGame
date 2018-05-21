@@ -4,10 +4,10 @@
     <div class="jumbotron">
         <div class="row">
                         <div class="col-md-4">
-                                <h1><%= user.username%></h1>
                                 <img class="profilePicture" src="<%= user.avatar %>" alt="avatar image">
                         </div>
                         <div class="col-md-8">
+                            <h1><%= "Username: " + user.username%></h1>
                             <h1><%= "First name:  " + user.firstName %></h1>
                             <h1><%= "Last name:  " + user.lastName %></h1>
                             <h1><%= "email:  " + user.email %></h1>
@@ -18,8 +18,47 @@
 
         </div>
     </div>
+
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-4">
+
+                <div class="card text-white bg-success">
+                    <h1>User's campgrounds</h1>
+                    <ul style="list-style-type: none;">
+                        <% campgrounds.forEach(function(campground) {%>
+                        <li><a href="/campgrounds/<%=campground.id%>"><%= campground.name%></a></li>
+                        <img class="profileCampPicture"
+                             src="/campgrounds/<%=campground.image%>"
+                             alt="<%=campground.image%>">
+                        <% }); %>
+                    </ul>
+
+                </div>
+
+            </div>
+            <div class="col-md-8">
+
+                <div class="card text-white bg-success">
+                    <h1>User's comments</h1>
+                    <ul>
+                        <% comments.reverse() %>
+                        <% comments.forEach(function(comment) {%>
+                        <li><%=comment.text%><br><em>
+                                <%= moment(comment.createdAt).fromNow() %>
+                            </em></li>
+                        <% }); %>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
     <div class="container" style="text-align: center">
-        <a class="centerPosition" href="<%= previousURL%>">Go back</a>
+        <a class="centerPosition" href="<%=previousURL%>">Go back</a>
     </div>
 
 
