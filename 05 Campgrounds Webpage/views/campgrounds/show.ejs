@@ -32,9 +32,8 @@
 
                 <div class="pr-3">
                 <p class="float-right">Posted by:
-                        <a class="orangeredTextColour" href="/users/<%= campground.author.id %>">
-                            <%= campground.author.username%>
-                        </a>
+                    <a class="orangeredTextColour" href="/users/<%= campground.author.id %>">
+                        <%=campground.author.username%></a>
                         <%= moment(campground.createdAt).fromNow() %></p>
                 </div>
 
