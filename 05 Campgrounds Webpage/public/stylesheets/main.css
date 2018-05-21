@@ -75,13 +75,13 @@ body{
 }
 
 .profilePicture{
-    height: max-content;
-    width: max-content;
+    height: 100%;
+    width: 100%;
 }
 
 .profileCampPicture{
     height: 100px;
-    width: 150px;
+    width: 85%;
 }
 
 .orangeredTextColour{
