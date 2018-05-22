@@ -8,8 +8,14 @@ var commentSchema = new mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: "User"
         },
-
         username: String
+    },
+    campground:{
+        id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Campground"
+        },
+        campgroundName: String
     }
 });
 
