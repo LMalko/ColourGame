@@ -84,6 +84,7 @@ router.post("/", middleware.isLoggedIn, function(req, res){
 // SHOW - shows more info about one campground.
 router.get("/:id", function(req, res){
     var campgroundsContainer = [];
+    var users = [];
 
     // Assign all campgrounds to a variable.
     Campground.find(function(err, allCampgrounds) {
@@ -94,6 +95,15 @@ router.get("/:id", function(req, res){
         }
     });
 
+    // Assign all users to a variable.
+    User.find(function(err, allUsers) {
+        if (err) {
+            console.log(err);
+        } else {
+            users = allUsers;
+        }
+    });
+
     Campground.findById(req.params.id).populate("comments").exec(
         function(err, foundCampground){
             if(err){
@@ -101,7 +111,8 @@ router.get("/:id", function(req, res){
             } else{
                 res.render("campgrounds/show",
                     {campground: foundCampground,
-                        campgrounds: campgroundsContainer});
+                        campgrounds: campgroundsContainer,
+                        users: users});
             }
         });
 });
