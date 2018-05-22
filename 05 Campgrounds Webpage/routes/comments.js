@@ -41,6 +41,8 @@ router.post("/",
                         //Add id & username to comment
                         comment.author.id = req.user._id;
                         comment.author.username = req.user.username;
+                        comment.campground.id = campground._id;
+                        comment.campground.campgroundName = campground.name;
                         // Save comment.
                         comment.save();
 
