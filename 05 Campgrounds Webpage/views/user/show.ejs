@@ -49,7 +49,9 @@
                         <% comments.reverse() %>
                         <% comments.forEach(function(comment) {%>
                         <li>'<%=comment.text%>'<br><em class="limeTextColor">
-                                <%= moment(comment.createdAt).fromNow() %>
+                                <%= moment(comment.createdAt).fromNow() %> in
+                                <a href="/campgrounds/<%=comment.campground.id%>">
+                                    <%= comment.campground.campgroundName%></a>
                             </em></li>
                         <% }); %>
 
