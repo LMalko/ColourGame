@@ -178,7 +178,7 @@ router.get("/users/:id", function(req, res){
         }
         Campground.find().where('author.id').equals(foundUser._id).exec(function(err, campgrounds) {
             if(err){
-                req.flash("error", "Something went wrong with user'c campground search.");
+                req.flash("error", "Something went wrong with user's campground search.");
                 return res.redirect(previousURL)
             }
             Comment.find().where("author.id").equals(foundUser._id).exec(function(err, comments){
@@ -189,6 +189,30 @@ router.get("/users/:id", function(req, res){
                 res.render("user/show", {user: foundUser, campgrounds: campgrounds, comments: comments})
             });
         });
+    });
+});
+// CHANGE USER AVATAR.
+router.get("/users/:id/editAvatar", middleware.isLoggedIn, function(req, res){
+    if (req.user._id.equals(req.params.id)){
+        res.render("user/editAvatar", {user: req.user})
+    } else {
+        req.flash("error", "You can't change other user's profile.");
+        res.redirect(previousURL)
+    }
+});
+
+router.put("/users/:id", function(req, res){
+
+    req.user.avatar = req.body.user.avatar;
+
+    User.findByIdAndUpdate(req.user._id, req.user, function(err, updatedUser){
+        if(err){
+            req.flash("error", err);
+            res.redirect("/campgrounds");
+        } else {
+            req.flash("success", "User's avatar changed");
+            res.redirect("/users/" + req.user._id)
+        }
     });
 });
 
