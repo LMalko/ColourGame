@@ -36,6 +36,8 @@
                     <div class="dropdown-menu" id="dropdownSpecs4" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" id="dropdownSpecs2"
                            href="/users/<%= currentUser._id%>">Show my profile</a>
+                        <a class="dropdown-item" id="dropdownSpecs2"
+                           href="/users/<%= currentUser._id%>/editAvatar">Change avatar</a>
                 <% if(currentUser.isAdmin){ %>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" id="dropdownSpecs2" href="/editUser">Assign user roles</a>
