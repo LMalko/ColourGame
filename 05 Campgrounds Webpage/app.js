@@ -25,6 +25,7 @@ var express = require("express");
 var commentRoutes = require("./routes/comments");
 var campgroundRoutes = require("./routes/campgrounds");
 var indexRoutes = require("./routes/index");
+var userRoutes = require("./routes/users");
 
 // Method override needs to be high for others to see.
 app.use(methodOverride("_method"));
@@ -93,6 +94,7 @@ app.use(indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 // Same for comments, index doesn't have common address.
 app.use("/campgrounds/:id/comments", commentRoutes);
+app.use(userRoutes);
 
 
 
