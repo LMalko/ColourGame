@@ -15,6 +15,8 @@ Installation:
 - Geocoding API
 - Maps Javascript API
 
+- Campgrounds index images are stored in cloudinary, camground home slide images & profile avatars are stored locally.
+
 
 # 4. MovieAPIApp (Node.js, Express.js, npm [ Request, ejs ])
 
