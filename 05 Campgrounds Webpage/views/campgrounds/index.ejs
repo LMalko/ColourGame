@@ -8,6 +8,18 @@
             <p>
                 <a class="btn btn-success btn-lg" href="/campgrounds/new">Add new campground</a>
             </p>
+            <p>
+                    <form action="/campgrounds" method="GET" class="form-inline">
+                            <div class="form-group">
+                                        <input type="submit" value="Search"
+                                               class="btn btn-lg btn-warning mr-3">
+                                        <input type="text" name="search"
+                                               placeholder="campground search..."
+                                                class="form-control-lg">
+
+                            </div>
+                    </form>
+            </p>
         </div>
     </header>
 
