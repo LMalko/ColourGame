@@ -85,16 +85,16 @@
     </div>
     <%}%>
 
-    <% if(results){ %>
+    <% try{ %>
         <% if (results === 'No results.') { %>
                 <div class="alert alert-danger" role="alert">
                     <%= results %>
                 </div>
-        <% } else { %>
+        <% } else if(results) { %>
                 <div class="alert alert-success" role="alert">
                     <%= results %>
                 </div>
 
-        <% }}%>
+        <% }}catch(err){}%>
 </div>
 

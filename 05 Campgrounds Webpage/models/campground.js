@@ -24,7 +24,9 @@ var campgroundSchema = new mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: "Comment"
         }
-    ]
+    ],
+
+    imageId: String
 });
 
 module.exports = mongoose.model("Campground", campgroundSchema);

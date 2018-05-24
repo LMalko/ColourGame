@@ -1,4 +1,4 @@
-# 5. Campgrounds Webpage (Node.js, Express 5.6.0, Bootstrap 4, MongoDB, REST, npm [ ejs, body-parser, mongoose, passport, passport-local, passport-local-mongoose, express-session, method-override, connect-flash, dotenv, node-geocoder, moment])
+# 5. Campgrounds Webpage (Node.js, Express 5.6.0, Bootstrap 4, MongoDB, REST, npm [ ejs, body-parser, mongoose, passport, passport-local, passport-local-mongoose, express-session, method-override, connect-flash, dotenv, node-geocoder, moment, multer, claudinary])
 
 Installation:
 - install Node.js, MongoDB
@@ -14,6 +14,8 @@ Installation:
 
 - Geocoding API
 - Maps Javascript API
+
+- Campgrounds index images are stored in cloudinary, camground home slide images & profile avatars are stored locally.
 
 
 # 4. MovieAPIApp (Node.js, Express.js, npm [ Request, ejs ])
