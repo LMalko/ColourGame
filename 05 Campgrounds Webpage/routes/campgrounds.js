@@ -248,14 +248,24 @@ router.put("/:id", middleware.checkCampgroundOwnership,
 router.delete("/:id",
     middleware.checkCampgroundOwnership,
     function(req, res){
-    Campground.findByIdAndRemove(req.params.id, function(err){
-        if(err){
-            res.redirect("/campgrounds");
+
+    Campground.findById(req.params.id, function(err, foundCampground) {
+        if (err) {
+            req.flash("error", err.message);
         } else {
-            req.flash("error", "Campground deleted");
-            res.redirect("/campgrounds");
+
+            cloudinary.v2.uploader.destroy(foundCampground.imageId, function (err, result) {
+                if (err) {
+                    req.flash('error', err.message);
+                    return res.redirect("/campgrounds");
+                } else {
+                    foundCampground.remove();
+                    req.flash("error", "Campground deleted");
+                    res.redirect("/campgrounds");
+                }
+            });
         }
-    })
+    });
 });
 
 function escapeRegex(text) {
