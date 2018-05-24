@@ -5,6 +5,40 @@ var Campground = require("../models/campground");
 // it will automatically search for index.js.
 var middleware = require("../middleware");
 
+
+
+
+// Multer & cloudinary configuration code
+var multer = require('multer');
+
+var storage = multer.diskStorage({
+    filename: function(req, file, callback) {
+        callback(null, Date.now() + file.originalname);
+    }
+});
+
+var imageFilter = function (req, file, cb) {
+    // accept image files only
+    if (!file.originalname.match(/\.(jpg|jpeg|png|gif|bmp)$/i)) {
+        return cb(new Error('Only image files are allowed!'), false);
+    }
+    cb(null, true);
+};
+
+
+
+
+
+
+var upload = multer({ storage: storage, fileFilter: imageFilter});
+
+var cloudinary = require('cloudinary');
+cloudinary.config({
+    cloud_name: 'campgrounds2018',
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_KEY_SECRET
+});
+
 // For google map API
 var NodeGeocoder = require('node-geocoder');
 
@@ -53,7 +87,7 @@ router.get("/new", middleware.isLoggedIn, function(req, res){
 });
 
 // CREATE - Add new campground to DB.
-router.post("/", middleware.isLoggedIn, function(req, res){
+router.post("/", middleware.isLoggedIn, upload.single('image'), function(req, res){
 
     var name = req.body.name;
     // Make sure the string 1st letter is Upper & the rest Lower case.
@@ -80,21 +114,28 @@ router.post("/", middleware.isLoggedIn, function(req, res){
         var lng = data[0].longitude;
         var location = data[0].formattedAddress;
 
-        var newCampground = {
-            name: name, image: image,
-            description: description, author: thisAuthor, price: price,
-            location: location, lat: lat, lng: lng
-        };
+        cloudinary.uploader.upload(req.file.path, function(result) {
+            // add cloudinary url for the image to the campground object under image property
+            req.body.image = result.secure_url;
 
-        Campground.create(newCampground, function (err) {
-            if (err) {
-                req.flash("error", "This name was already taken");
-                res.redirect("/campgrounds/new");
-                console.log(err);
-            } else {
-                req.flash("success", "Campground was added");
-                res.redirect("/campgrounds");
-            }
+                            console.log(req.body.image);
+
+                            var newCampground = {
+                                name: name, image: req.body.image,
+                                description: description, author: thisAuthor, price: price,
+                                location: location, lat: lat, lng: lng
+                            };
+
+                            Campground.create(newCampground, function (err) {
+                                if (err) {
+                                    req.flash("error", "This name was already taken");
+                                    res.redirect("/campgrounds/new");
+                                    console.log(err);
+                                } else {
+                                    req.flash("success", "Campground was added");
+                                    res.redirect("/campgrounds");
+                                }
+                            });
         });
     });
 });
@@ -145,7 +186,7 @@ router.get("/:id/edit", middleware.checkCampgroundOwnership, function(req, res){
 });
 // Update campground route, receives the form.
 
-router.put("/:id", middleware.checkCampgroundOwnership, function(req,res){
+router.put("/:id", middleware.checkCampgroundOwnership, upload.single('image'), function(req,res){
 
     geocoder.geocode(req.body.location, function (err, data) {
         if (err || !data.length) {
@@ -156,19 +197,24 @@ router.put("/:id", middleware.checkCampgroundOwnership, function(req,res){
         req.body.campground.lng = data[0].longitude;
         req.body.campground.location = data[0].formattedAddress;
 
-    // Find and update the correct campground and redirect.
-    // Use mongoose built-in function.
+        cloudinary.uploader.upload(req.file.path, function(result) {
+            // add cloudinary url for the image to the campground object under image property
+            req.body.campground.image = result.secure_url;
 
-        Campground.findByIdAndUpdate(req.params.id,
-            req.body.campground,
-            function(err, updatedCampground){
-                if(err){
-                    res.redirect("/campgrounds");
-                } else {
-                    req.flash("success", "Campground edited");
+                            // Find and update the correct campground and redirect.
+                            // Use mongoose built-in function.
 
-                    res.redirect("/campgrounds/" + req.params.id)
-                }
+                                Campground.findByIdAndUpdate(req.params.id,
+                                    req.body.campground,
+                                    function(err, updatedCampground){
+                                        if(err){
+                                            res.redirect("/campgrounds");
+                                        } else {
+                                            req.flash("success", "Campground edited");
+
+                                            res.redirect("/campgrounds/" + req.params.id)
+                                        }
+                                    });
         });
     });
 });
@@ -191,4 +237,6 @@ function escapeRegex(text) {
     // Escape regular expression special characters.
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
 }
+
+
 module.exports = router;
