@@ -84,5 +84,17 @@
         <%= success %>
     </div>
     <%}%>
+
+    <% if(results){ %>
+        <% if (results === 'No results.') { %>
+                <div class="alert alert-danger" role="alert">
+                    <%= results %>
+                </div>
+        <% } else { %>
+                <div class="alert alert-success" role="alert">
+                    <%= results %>
+                </div>
+
+        <% }}%>
 </div>
 
