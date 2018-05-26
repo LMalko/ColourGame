@@ -143,3 +143,9 @@ body{
 .footerStyling{
     margin-top: 50px;
 }
+
+.userProfileActivities{
+    width: 30%;
+    margin: 25px auto;
+    text-align: center;
+}
