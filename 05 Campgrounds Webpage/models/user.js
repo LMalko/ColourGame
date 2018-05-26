@@ -8,6 +8,11 @@ var userSchema = new mongoose.Schema({
     avatar: String,
     firstName: String,
     lastName: String,
+
+    // necessary for reset password:
+    resetPasswordToken: String,
+    resetPasswordExpires: Date,
+
     email: {type: String, unique: true, required: true},
 });
 
