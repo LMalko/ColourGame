@@ -269,7 +269,7 @@ router.delete("/:id",
 });
 
 function escapeRegex(text) {
-    // Escape regular expression special characters.
+    // Escape regular expression special characters, get the last match.
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
 }
 
