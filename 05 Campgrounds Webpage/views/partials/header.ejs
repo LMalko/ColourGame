@@ -50,6 +50,8 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <%if(!currentUser){%>
+                <li><a class="whiteTextColor <%= thisURL === "/forgot" ? "redTextColor": " "%> ml-2 mr-2"
+                       href="/forgot">Forgot Password</a></li>
                 <li><a class="whiteTextColor <%= thisURL === "/register" ? "redTextColor": " "%> ml-2 mr-2"
                        href="/register">Sign Up</a></li>
                 <li><a class="whiteTextColor <%= thisURL === "/login" ? "redTextColor": " "%> ml-2 mr-2"
