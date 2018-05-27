@@ -56,7 +56,7 @@ var geocoder = NodeGeocoder(options);
 router.get("/", function(req, res){
 
     // Pagination variables
-    var perPage = 10;
+    var perPage = 4;
     var pageQuery = parseInt(req.query.page);
     var pageNumber = pageQuery ? pageQuery : 1;
 
