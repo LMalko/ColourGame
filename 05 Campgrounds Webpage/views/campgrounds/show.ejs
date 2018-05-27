@@ -64,11 +64,39 @@
             </div>
             <div class="card text-white bg-secondary mt-4 mb-4">
 
-                <div class="pt-3 pr-3">
-                    <p>
-                        <a class="float-right btn btn-warning btn-lg"
-                           href="/campgrounds/<%= campground._id %>/comments/new">Add new comment</a>
-                    </p>
+                <p class="pt-5 pr-5">
+                    <button class="float-right btn btn-warning btn-lg" type="button" data-toggle="collapse"
+                            data-target="#collapseComment" aria-expanded="false"
+                            aria-controls="collapseComment">
+                        Add comment
+                    </button>
+                </p>
+                <div class="collapse pr-5 pl-5" id="collapseComment">
+                        <div class="well">
+                            <% if(!currentUser) { %>
+                            <!--If the user is not logged in, direct him to the login page-->
+                            <h5>You need to login before you can comment.
+                                <a class="redTextColor"href="/login">Click here</a> to go to the login page.</h5>
+                            <% } %>
+                            <% if(currentUser) { %>
+                            <!--If the user is logged in, show the new comment form-->
+                            <h4>Write your comment <span  aria-hidden="true"></span></h4>
+                            <form id="add-comment-form"
+                                  action="/campgrounds/<%= campground._id %>/comments" method="POST">
+                                <div class="form-group">
+                                    <input class="form-control" type="text" disabled value="<%= currentUser.username %>">
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" name="comment[text]"
+                                              placeholder="Write your comment..."
+                                              form="add-comment-form" rows="5" cols="70"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-success btn-sm">Comment <span aria-hidden="true"></span></button>
+                                </div>
+                            </form>
+                            <% } %>
+                        </div>
                 </div>
 
                 <hr class="ml-3 mr-3">
