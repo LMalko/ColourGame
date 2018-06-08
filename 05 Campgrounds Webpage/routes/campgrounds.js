@@ -64,7 +64,7 @@ router.get("/", function(req, res){
     if(req.query.search){
         // 'g' modifier: global. All matches (don't return on first match).
         const regex = new RegExp(escapeRegex(req.query.search), 'gi');
-                        Campground.find({}).skip((perPage * pageNumber) - perPage).limit(perPage).exec({name: regex}, function (err, allCampgrounds) {
+                        Campground.find({name: regex}).skip((perPage * pageNumber) - perPage).limit(perPage).exec({name: regex}, function (err, allCampgrounds) {
                             Campground.count().exec(function (err, count) {
                                 if (err) {
                                     console.log(err);
