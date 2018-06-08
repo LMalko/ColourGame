@@ -15,7 +15,12 @@
             </div>
         </form>
         <p style="text-align: center">
-            <a href="<%= previousURL %>" >Go Back</a>
+            console.log(<%= beforePreviousURL%>)
+            <% if (previousURL == "/campgrounds/new") {%>
+            <a href="/campgrounds">Go Back</a>
+            <% } else { %>
+            <a href=<%=previousURL%>>Go Back</a>
+            <% } %>
         </p>
     </div>
 </div>
