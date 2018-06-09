@@ -155,7 +155,14 @@ body{
     text-align: center;
 }
 
-.Pagination1{
+.CenterContent{
     display: flex;
     justify-content: center;
+}
+
+.BorderBox{
+    margin-left: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+    width: 30%;
 }
