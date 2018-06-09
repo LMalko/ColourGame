@@ -156,6 +156,6 @@ body{
 }
 
 .Pagination{
-    width:30%;
-    margin: 25px auto;
+    display: flex;
+    justify-content: center;
 }
