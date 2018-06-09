@@ -1,10 +1,10 @@
 <% include ../partials/header %>
 
 <div class="container">
-    <header class="jumbotron">
-        <div class="container">
-            <h2>Welcome to Campgrounds!</h2>
-            <p>View our hand-picked campgrounds from all over the world!</p>
+    <header class="jumbotron p-3">
+        <h2 class="ml-3">Welcome to Campgrounds!</h2>
+        <p class="ml-3">View our hand-picked campgrounds from all over the world!</p>
+        <div class="container BorderBox">
             <p>
                 <a class="btn btn-success btn-lg" href="/campgrounds/new">Add new campground</a>
             </p>
@@ -12,10 +12,10 @@
                     <form action="/campgrounds" method="GET" class="form-inline">
                             <div class="form-group">
                                         <input type="submit" value="Search"
-                                               class="btn btn-lg btn-warning mr-3">
+                                               class="btn btn-lg btn-warning mt-3 mr-3">
                                         <input type="text" name="search"
                                                placeholder="campground search..."
-                                                class="form-control-lg">
+                                                class="form-control-lg mt-3">
 
                             </div>
                     </form>
@@ -44,8 +44,8 @@
 </div>
 
 
-<div class="container " >
-    <div class="row text-center Pagination">
+<div class="container CenterContent">
+    <div class="row text-center">
         <% if (pages && pages > 0) { %>
         <ul class="pagination">
             <% if (current == 1) { %>
