@@ -62,7 +62,7 @@ router.post("/login",
         req.flash("success", req.body.username + " has successfully logged in");
 
         res.redirect("/campgrounds");
-        
+
         delete req.session.returnTo;
     });
 
