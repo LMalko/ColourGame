@@ -49,12 +49,12 @@
                             currentUser && currentUser.isAdmin){ %>
                         <form class="Inline" action="/campgrounds/<%= campground._id %>/edit"
                               method="GET">
-                            <button type="button" class="btn btn-primary btn-lg btn-block mb-3">Edit campground</button>
+                            <button class="btn btn-primary btn-lg btn-block mb-3">Edit campground</button>
                         </form>
 
                         <form class="Inline" action="/campgrounds/<%= campground._id %>?_method=DELETE"
                               method="POST">
-                            <button type="button" class="btn btn-danger btn-lg btn-block">Delete campground</button>
+                            <button class="btn btn-danger btn-lg btn-block">Delete campground</button>
                         </form>
 
                     <% } %>
