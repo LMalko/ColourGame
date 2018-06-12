@@ -49,6 +49,8 @@ body{
 
 .bodyNavbarMargin{
     margin-bottom: 30px;
+    height: 8%;
+    font-size: 17px;
 }
 
 .NewPost{
