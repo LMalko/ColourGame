@@ -6,8 +6,12 @@ body{
     background-attachment: fixed
 }
 
+#navbarSupportedContent{
+ background: black;
+}
+
 .navbar{
-    background: rgba(0,0,0,0.4);
+    background: black;
 }
 
 .whiteTextColor{
@@ -23,7 +27,7 @@ body{
     color: lawngreen;
 }
 #dropdownSpecs4{
-    background: #302b63;
+    background: black;
 }
 
 
@@ -49,7 +53,7 @@ body{
 
 .bodyNavbarMargin{
     margin-bottom: 30px;
-    height: 8%;
+    height: 10%;
     font-size: 17px;
 }
 
