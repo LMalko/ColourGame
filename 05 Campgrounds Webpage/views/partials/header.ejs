@@ -26,11 +26,11 @@
 
         <div class="collapse navbar-collapse pb-3" id="navbarSupportedContent">
 
-
-                <a class="whiteTextColor <%= thisURL === "/campgrounds/" ? "redTextColor": " "%> ml-2"
-                                href="/campgrounds">
-                    <img src="http://res.cloudinary.com/campgrounds2018/image/upload/c_scale,h_22/v1528803453/icons8-campfire-48.png"
-                         class="ml-3">Campgrounds</a>
+            <a class="whiteTextColor <%= thisURL === "/campgrounds/" ||
+            thisURL.startsWith("/campgrounds/?page=") ? "redTextColor": " "%> ml-2"
+               href="/campgrounds">
+                <img src="http://res.cloudinary.com/campgrounds2018/image/upload/c_scale,h_22/v1528803453/icons8-campfire-48.png"
+                     class="ml-1 ml-3">Campgrounds</a>
 
             <ul class="navbar-nav mr-auto">
                 <% if(currentUser) {%>
