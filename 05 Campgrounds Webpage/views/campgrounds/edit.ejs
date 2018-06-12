@@ -28,22 +28,27 @@
                     <input class="form-control" type="text" name="location"
                            id="location" value="<%= campground.location %>">
                 </div>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="NewPost" style="text-align: center;">
 
-                <h1>AVATAR</h1>
-                <legend>CHOOSE FILE</legend>
-                <div class="form-group">
-                    <input class="form-control" id="image1" type="file"
-                           name="image1" placeholder="image url" accept="image/*">
-                </div>
-                <legend>OR INSERT URL</legend>
-                <div class="form-group">
-                    <input class="form-control" id="image2" type="text" value="<%= campground.image %>"
-                           name="image2" placeholder="image url" accept="image/*">
-                </div>
+            <legend style="font-weight: bold">AVATAR</legend>
+            <legend>CHOOSE FILE</legend>
 
-                <div class="form-group">
-                    <button class="btn btn-lg btn-info btn-block">Submit</button>
-                </div>
+            <label class="btn btn-default" style="border-color: whitesmoke; width: 100%">
+                Browse <input name="image1" accept="image/*" id="image1" type="file" hidden>
+            </label>
+
+            <legend>OR INSERT URL</legend>
+            <div class="form-group">
+                <input class="form-control" id="image2" type="text" value="<%= campground.image %>"
+                       name="image2" placeholder="image url" accept="image/*">
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-lg btn-info btn-block">Submit</button>
+            </div>
 
 
             </form>

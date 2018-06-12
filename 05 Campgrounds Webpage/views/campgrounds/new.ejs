@@ -27,12 +27,13 @@
     <div class="row" >
         <div class="NewPost" style="text-align: center;">
 
-            <legend>AVATAR</legend>
+            <legend style="font-weight: bold">AVATAR</legend>
             <legend>CHOOSE FILE</legend>
-            <div class="form-group">
-                <input class="form-control p-0" id="image1" type="file"
-                       name="image1" accept="image/*">
-            </div>
+
+            <label class="btn btn-default" style="border-color: whitesmoke; width: 100%">
+                Browse <input name="image1" accept="image/*" id="image1" type="file" hidden>
+            </label>
+
             <legend>OR INSERT URL</legend>
             <div class="form-group">
                 <input class="form-control" id="image2" type="text"
