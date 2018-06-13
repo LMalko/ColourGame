@@ -11,9 +11,8 @@ Installation:
 - mongod, mongo
 - go to "http://localhost:8080/"
 
-> Genesis user: admin - symetria<br>
-> Save database: mongodump -d campgroundsDB<br>
-> Restore database: mongorestore -d campgroundsDB .
+- Save database: mongodump -d campgroundsDB
+- Restore database: mongorestore -d campgroundsDB .
 
 - Geocoding API
 - Maps Javascript API
