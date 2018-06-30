@@ -25,7 +25,9 @@ a:hover{
 
 section{
     display: flex;
-    
+    flex-direction: column;
+    align-items: center;
+    padding: 5vw 15vh;
 }
 
 .menu{
