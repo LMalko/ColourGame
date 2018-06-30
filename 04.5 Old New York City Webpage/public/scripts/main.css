@@ -1,7 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+
 }
 
 html {
@@ -32,9 +32,11 @@ section{
 
 .menu{
     background: blue !important;
+    margin-bottom: 0 !important;
 }
 .segment{
     background: cornflowerblue !important;
+    margin-bottom: 0 !important;
 }
 
 .active{
@@ -52,8 +54,8 @@ section{
 
 .hero{
     position: relative;
-    justify-content: center;
-    text-align: center;
+    justify-content: center !important;
+    text-align: center !important;
     min-height: 100vh;
 }
 
@@ -66,5 +68,24 @@ section{
     background-size: cover;
     z-index: -1;
     background-color: #80a3db;
+}
 
+.hero-content-area{
+    color: cornflowerblue;
+    margin: 0 auto;
+    border: solid 3px cornflowerblue;
+    border-radius: 400px;
+    width: 30%;
+    height: 30%;
+    text-align: center !important;
+    padding: 40px;
+}
+.hero-content-area:hover{
+    animation: 1s colorin forwards;
+}
+
+@keyframes colorin {
+    100%{
+        background-color: white;
+    }
 }
