@@ -23,6 +23,11 @@ a:hover{
     }
 }
 
+section{
+    display: flex;
+    
+}
+
 .menu{
     background: blue !important;
 }
@@ -37,4 +42,9 @@ a:hover{
 
 .font18{
     font-size: 18px;
+}
+
+.button{
+    text-transform: uppercase !important;
+
 }
