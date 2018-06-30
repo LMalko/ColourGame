@@ -6,10 +6,10 @@
 
 html {
     font: normal 16px sans-serif;
-    color: grey;
 }
 
 a{
+    color: white !important;
     opacity: 0.5;
 }
 
@@ -17,8 +17,15 @@ a:hover{
     opacity: 1;
 }
 
+.menu{
+    background: blue !important;
+}
+.segment{
+    background: cornflowerblue !important;
+}
+
 .active{
-    color: #e74c3c !important;
+    background: cornflowerblue !important;
     opacity: 1;
 }
 
