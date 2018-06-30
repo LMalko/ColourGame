@@ -22,7 +22,7 @@ Installation:
 # 4.5 Old New York City Webpage (Semantic-UI)
 
 sources:
-> dailymail.co.uk
+> dailymail.co.uk<br>
 > ranker.com
 
 # 4. MovieAPIApp (Node.js, Express.js, npm [ Request, ejs ])
