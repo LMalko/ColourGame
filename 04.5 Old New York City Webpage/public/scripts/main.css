@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+html {
+    font: normal 16px sans-serif;
+    color: #4e555b;
+}
+
 .font12{
     font-size: 18px;
 }
