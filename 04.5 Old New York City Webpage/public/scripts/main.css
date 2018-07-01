@@ -205,3 +205,27 @@ section:not(.hero):nth-child(even){
     line-height: 1.5;
     margin: 40px 0 25px
 }
+
+
+
+
+
+.contact{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.ui.green.button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ui.input{
+    width: 100%;
+    display: flex !important;
+}
+.input1{
+    margin-right: 15px !important;
+    flex: 1 !important;
+}
