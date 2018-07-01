@@ -87,5 +87,7 @@ section{
 @keyframes colorin {
     100%{
         background-color: white;
+        border: solid 3px blue;
+        color: blue;
     }
 }
