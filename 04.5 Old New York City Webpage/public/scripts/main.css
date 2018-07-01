@@ -95,13 +95,23 @@ section{
     text-align: center !important;
 
 
-    animation-name: jiggle;
-    animation-duration: 20s;
+    animation-name: streching;
+    animation-duration: 10s;
     animation-timing-function: ease-in;
     animation-iteration-count: infinite;
 
-
 }
+
+@keyframes  streching{
+    0%, 100%{
+        transform: scale(1.0);
+    }
+    50%{
+        transform: scale(1.1);
+    }
+}
+
+
 .hero-content-area:hover{
     animation: 1s colorin forwards;
 }
@@ -114,20 +124,7 @@ section{
     }
 }
 
-@keyframes jiggle{
-    48%, 62%{
-        transform: scale(1.0, 1.0);
-    }
-    50%{
-        transform: scale(1.1, 0.9);
-    }
-    56%{
-        transform: scale(0.9, 1.1) translate(0, -5px);
-    }
-    59%{
-        transform: scale(1.0, 1.0) translate(0, -3px)
-    }
-}
+
 
 ul{
     list-style: none;
@@ -176,9 +173,9 @@ section h3.title{
 }
 
 .periods .grid li.small{
-    flex-basis: 35%;
+    flex-basis: 45%;
 }
 
 .periods .grid li.large{
-    flex-basis: 70%;
+    flex-basis: 90%;
 }
