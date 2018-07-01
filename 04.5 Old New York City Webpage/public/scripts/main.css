@@ -95,37 +95,33 @@ section{
     text-align: center !important;
 
 
-    animation-name: jiggle;
-    animation-duration: 20s;
+    animation-name: streching;
+    animation-duration: 10s;
     animation-timing-function: ease-in;
     animation-iteration-count: infinite;
 
-
 }
+
+@keyframes  streching{
+    0%, 100%{
+        transform: scale(1.0);
+    }
+    50%{
+        transform: scale(1.1);
+    }
+}
+
+
 .hero-content-area:hover{
-    animation: 1s colorin forwards;
+    animation: 2s colorin-rotate forwards;
 }
 
-@keyframes colorin {
+@keyframes colorin-rotate {
     100%{
         background-color: white;
         border: solid 3px blue;
         color: blue;
-    }
-}
-
-@keyframes jiggle{
-    48%, 62%{
-        transform: scale(1.0, 1.0);
-    }
-    50%{
-        transform: scale(1.1, 0.9);
-    }
-    56%{
-        transform: scale(0.9, 1.1) translate(0, -5px);
-    }
-    59%{
-        transform: scale(1.0, 1.0) translate(0, -3px)
+        transform: rotate(360deg);
     }
 }
 
@@ -161,18 +157,51 @@ section h3.title{
     text-align: center;
 }
 
+
+
+
+
+
+
 .periods .grid li{
-    height: 350px;
-    padding: 20px;
+    height: 400px;
+    padding: 10px;
     background-clip: content-box;
     background-size: cover;
     background-position: center;
 }
 
 .periods .grid li.small{
-    flex-basis: 35%;
+    flex-basis: 45%;
 }
 
 .periods .grid li.large{
-    flex-basis: 70%;
+    flex-basis: 90%;
+}
+
+
+section:not(.hero):nth-child(even){
+    background-color: cornflowerblue;
+}
+
+.packages .grid li{
+    padding: 50px;
+    flex-basis: 50%;
+    text-align: center;
+}
+
+.packages .grid li i{
+    /*color: #e74c3c;*/
+}
+
+.packages .grid li h4{
+    font-size: 30px;
+    margin: 25px 0;
+}
+
+.testimonials .quote{
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.5;
+    margin: 40px 0 25px
 }
