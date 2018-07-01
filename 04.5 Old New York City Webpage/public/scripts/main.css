@@ -4,6 +4,10 @@
 
 }
 
+html, body {
+    height:100%;
+}
+
 html {
     font: normal 16px sans-serif;
 }
@@ -74,7 +78,7 @@ section{
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 1600px;
     background-size: cover;
     z-index: -1;
     background-color: #80a3db;
@@ -123,4 +127,8 @@ section{
     59%{
         transform: scale(1.0, 1.0) translate(0, -3px)
     }
+}
+
+.periods{
+    margin-top: 300px;
 }
