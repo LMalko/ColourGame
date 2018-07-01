@@ -113,18 +113,17 @@ section{
 
 
 .hero-content-area:hover{
-    animation: 1s colorin forwards;
+    animation: 2s colorin-rotate forwards;
 }
 
-@keyframes colorin {
+@keyframes colorin-rotate {
     100%{
         background-color: white;
         border: solid 3px blue;
         color: blue;
+        transform: rotate(360deg);
     }
 }
-
-
 
 ul{
     list-style: none;
@@ -178,4 +177,24 @@ section h3.title{
 
 .periods .grid li.large{
     flex-basis: 90%;
+}
+
+
+section:not(.hero):nth-child(even){
+    background-color: cornflowerblue;
+}
+
+.packages .grid li{
+    padding: 50px;
+    flex-basis: 50%;
+    text-align: center;
+}
+
+.packages .grid li i{
+    /*color: #e74c3c;*/
+}
+
+.packages .grid li h4{
+    font-size: 30px;
+    margin: 25px 0;
 }
