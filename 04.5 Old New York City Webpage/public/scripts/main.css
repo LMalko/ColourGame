@@ -160,3 +160,19 @@ section h3.title{
     margin-bottom: 30px;
     text-align: center;
 }
+
+.periods .grid li{
+    height: 350px;
+    padding: 20px;
+    background-clip: content-box;
+    background-size: cover;
+    background-position: center;
+}
+
+.periods .grid li.small{
+    flex-basis: 35%;
+}
+
+.periods .grid li.large{
+    flex-basis: 70%;
+}
