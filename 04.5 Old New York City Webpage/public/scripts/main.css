@@ -161,9 +161,15 @@ section h3.title{
     text-align: center;
 }
 
+
+
+
+
+
+
 .periods .grid li{
-    height: 350px;
-    padding: 20px;
+    height: 400px;
+    padding: 10px;
     background-clip: content-box;
     background-size: cover;
     background-position: center;
