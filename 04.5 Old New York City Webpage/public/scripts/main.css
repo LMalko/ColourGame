@@ -31,12 +31,22 @@ section{
 }
 
 .menu{
+    opacity: 0;
+    animation: 4s reveal forwards;
     background: blue !important;
     margin-bottom: 0 !important;
 }
 .segment{
+    opacity: 0;
+    animation: 4s reveal forwards;
     background: cornflowerblue !important;
     margin-bottom: 0 !important;
+}
+
+@keyframes reveal {
+    100%{
+        opacity: 1;
+    }
 }
 
 .active{
@@ -71,14 +81,22 @@ section{
 }
 
 .hero-content-area{
+    padding-top: 50px;
     color: cornflowerblue;
     margin: 0 auto;
     border: solid 3px cornflowerblue;
     border-radius: 400px;
-    width: 30%;
-    height: 30%;
+    width: 350px;
+    height: 250px;
     text-align: center !important;
-    padding: 40px;
+
+
+    animation-name: jiggle;
+    animation-duration: 20s;
+    animation-timing-function: ease-in;
+    animation-iteration-count: infinite;
+
+
 }
 .hero-content-area:hover{
     animation: 1s colorin forwards;
@@ -89,5 +107,20 @@ section{
         background-color: white;
         border: solid 3px blue;
         color: blue;
+    }
+}
+
+@keyframes jiggle{
+    48%, 62%{
+        transform: scale(1.0, 1.0);
+    }
+    50%{
+        transform: scale(1.1, 0.9);
+    }
+    56%{
+        transform: scale(0.9, 1.1) translate(0, -5px);
+    }
+    59%{
+        transform: scale(1.0, 1.0) translate(0, -3px)
     }
 }
