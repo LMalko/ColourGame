@@ -39,15 +39,15 @@
 
 
             <section class="hero">
-                <img class="IndexImage"
+                <img class="IndexImage" id="IndexImage"
                      src="public/img/1.jpg">
                 <div class="hero-content-area">
                     <h1>Old New York City</h1>
                     <h3>Pictures from 1930s - 1960s</h3>
                     <div class="ui buttons">
-                        <a href="#" class="ui positive button">Previous</a>
+                        <a href="#" class="ui positive button" onclick="previousImage()">Previous</a>
                         <div class="or"></div>
-                        <a href="#" class="ui violet button">Next</a>
+                        <a href="#" class="ui violet button" onclick="nextImage()">Next</a>
                     </div>
                 </div>
             </section>
@@ -118,15 +118,25 @@
             </section>
 
             <section class="contact">
-                <h3 class="title">Learn more</h3>
-                <p>In 1664, the city was named after the Duke of York, who would become King James II. James's older brother, King Charles II of England, had appointed the Duke proprietor of the former territory of New Netherlands, including the city of New Amsterdam, which England had recently seized from the Dutch.</p>
-                <hr>
+                <h3 class="title contact1">Learn more</h3>
+                <p class="contact1">In 1664, the city was named after the Duke of York, who would become King James II. James's older brother, King Charles II of England, had appointed the Duke proprietor of the former territory of New Netherlands, including the city of New Amsterdam, which England had recently seized from the Dutch.</p>
+                <hr class="contact1">
                     <div class="ui input">
                         <input class="input1" type="text" placeholder="email">
                         <a href="#" class="ui green button">Subscribe now</a>
                     </div>
             </section>
 
+
+            <footer>
+                <p>Images courtesy of Daily Mail.</p>
+                <p>This is a footer.</p>
+                <ul>
+                    <img class="icon icon2" src="public/img/twitter.png">
+                    <img class="icon icon2" src="public/img/facebook.png">
+                    <img class="icon icon2" src="public/img/insta.png">
+                </ul>
+            </footer>
 
 
         <script src="public/scripts/main.js"></script>
