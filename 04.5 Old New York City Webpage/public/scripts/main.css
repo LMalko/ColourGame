@@ -271,3 +271,27 @@ footer p{
         flex-direction: column;
     }
 }
+
+
+
+
+
+
+
+
+
+/*RESPONSIVE DESIGN*/
+@media (max-width: 800px){
+    section{
+        padding: 50px 20px;
+    }
+    .font18{
+        font-size: 12px;
+    }
+    .hero{
+        min-height: 600px;
+    }
+    .periods .grid li.small{
+        flex-basis: 90%;
+    }
+}
