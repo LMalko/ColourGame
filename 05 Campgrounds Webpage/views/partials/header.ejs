@@ -10,46 +10,46 @@
 
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark navbarcolors bodyNavbarMargin fixed-top pl-0 pr-0" >
+<nav class="navbar navbar-expand-lg navbar-dark navbarcolors fixed-top bodyNavbar" >
 
-    <a class="whiteTextColor ml-2 mb-3" href="/">
+    <a class="whiteTextColor" href="/">
         <img src="http://res.cloudinary.com/campgrounds2018/image/upload/c_scale,h_22/v1528803518/icons8-dog-house-48.png"
-             class="mr-1 ml-3">Home</a>
+             class="navbarItem">Home</a>
 
         <!-- parameter 'data-target ' sets id which items will be inside hamburger -->
-        <button class="navbar-toggler mr-3 mt-2" type="button"
+        <button class="navbar-toggler" type="button"
                 data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse pb-3" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
             <a class="whiteTextColor <%= thisURL === "/campgrounds/" ||
-            thisURL.startsWith("/campgrounds/?page=") ? "redTextColor": " "%> ml-2"
+            thisURL.startsWith("/campgrounds/?page=") ? "redTextColor": " "%>"
                href="/campgrounds">
                 <img src="http://res.cloudinary.com/campgrounds2018/image/upload/c_scale,h_22/v1528803453/icons8-campfire-48.png"
-                     class="ml-3 mr-1">Campgrounds</a>
+                     class="navbarItem">Campgrounds</a>
 
             <ul class="navbar-nav mr-auto">
                 <% if(currentUser) {%>
-                <li class="nav-item dropdown ml-2">
-                    <a class="nav-link dropdown-toggle"
-                       href="#" id="dropdownSpecs1" role="button"
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle dropdownSpecs1" style="padding: 0"
+                       href="#" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img src="http://res.cloudinary.com/campgrounds2018/image/upload/c_scale,h_19/v1528805880/icons8-services-48.png"
-                             class="mr-1 ml-3">Available actions
+                             class="navbarItem">Available actions
                     </a>
-                    <div class="dropdown-menu ml-4 mr-5" id="dropdownSpecs4" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" id="dropdownSpecs2"
+                    <div class="dropdown-menu ml-4 mr-4" id="dropdownSpecs4" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item dropdownSpecs1"
                            href="/users/<%= currentUser._id%>">Show my profile</a>
-                        <a class="dropdown-item" id="dropdownSpecs2"
+                        <a class="dropdown-item dropdownSpecs1"
                            href="/users/<%= currentUser._id%>/editAvatar">Change avatar</a>
                 <% if(currentUser.isAdmin){ %>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" id="dropdownSpecs2" href="/editUser">Assign user roles</a>
-                        <a class="dropdown-item" id="dropdownSpecs3" href="/destroyUser">Delete user</a>
+                        <a class="dropdown-item dropdownSpecs1" href="/editUser">Assign user roles</a>
+                        <a class="dropdown-item dropdownSpecs1" href="/destroyUser">Delete user</a>
                     </div>
                 </li>
                 <%} %>
@@ -58,29 +58,29 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <%if(!currentUser){%>
-                <li><a class="whiteTextColor <%= thisURL === "/forgot" ? "redTextColor": " "%>mr-1 ml-4"
+                <li><a class="whiteTextColor <%= thisURL === "/forgot" ? "redTextColor": " "%>"
                        href="/forgot">
                         <img src="http://res.cloudinary.com/campgrounds2018/image/upload/c_scale,h_22/v1528804137/icons8-confusion-50.png"
-                             class="mr-1">Forgot Password</a></li>
-                <li><a class="whiteTextColor <%= thisURL === "/register" ? "redTextColor": " "%>mr-1 ml-4"
+                             class="navbarItem">Forgot Password</a></li>
+                <li><a class="whiteTextColor <%= thisURL === "/register" ? "redTextColor": " "%>"
                        href="/register">
                         <img src="http://res.cloudinary.com/campgrounds2018/image/upload/c_scale,h_22/v1528804137/icons8-registration-50.png"
-                             class="mr-1">Sign Up</a></li>
-                <li><a class="whiteTextColor <%= thisURL === "/login" ? "redTextColor": " "%>mr-1 ml-4"
+                             class="navbarItem">Sign Up</a></li>
+                <li><a class="whiteTextColor <%= thisURL === "/login" ? "redTextColor": " "%>"
                        href="/login">
                         <img src="http://res.cloudinary.com/campgrounds2018/image/upload/c_scale,h_22/v1528804137/icons8-front-desk-50.png"
-                             class="mr-1">Log In</a></li>
+                             class="navbarItem">Log In</a></li>
                 <%}else{%>
-                <li class="limeTextColor ml-2" >
-                    <a class="mr-1 ml-3">
+                <li class="limeTextColor" >
+                    <a class="">
                         <img src="http://res.cloudinary.com/campgrounds2018/image/upload/c_scale,h_22/v1528805785/icons8-administrator-male-40.png"
-                            class="mr-1">Current user: <%= currentUser.username%></a>
+                            class="navbarItem">Current user: <%= currentUser.username%></a>
                 </li>
-                <li class="mr-1 ml-4"><a class="whiteTextColor"href="/logout">
+                <li class=""><a class="whiteTextColor"href="/logout">
                         <img src="http://res.cloudinary.com/campgrounds2018/image/upload/c_scale,h_22/v1528805572/icons8-exit-sign-48.png"
-                             class="mr-1">Log Out</a></li>
+                             class="navbarItem">Log Out</a></li>
                 <%}%>
-                <li class="ml-4"><a class=""></a></li>
+                <li class=""><a class=""></a></li>
             </ul>
         </div>
 </nav>

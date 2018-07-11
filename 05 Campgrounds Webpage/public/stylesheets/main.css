@@ -17,19 +17,12 @@ body{
 .whiteTextColor{
     color: white;
 }
-#dropdownSpecs1{
-    color: lawngreen;
-}
-#dropdownSpecs2{
-    color: lawngreen;
-}
-#dropdownSpecs3{
-    color: lawngreen;
+.dropdownSpecs1{
+    color: red;
 }
 #dropdownSpecs4{
     background: black;
 }
-
 
 .redTextColor{
     color: red;
@@ -51,10 +44,18 @@ body{
     margin-bottom: 100px;
 }
 
-.bodyNavbarMargin{
-    margin-bottom: 30px;
-    height: 10%;
-    font-size: 17px;
+.bodyNavbar{
+    border-radius: 40px;
+    font-size: 21px;
+    padding: 15px 20px;
+}
+
+.navbarItem{
+    margin-left: 10px;
+}
+
+a{
+    text-decoration: none!important;
 }
 
 .NewPost{
