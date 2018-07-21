@@ -19,13 +19,15 @@ Installation:
 
 - Campgrounds index images are stored in cloudinary, camground home slide images & profile avatars are stored locally.
 
+
 # 4.6 Random dog (AJAX)
 
 
-# 4.5 Old New York City Webpage (Semantic-UI)
+# 4.5 Old New York City Webpage (Semantic-UI, jQuery)
+
 
 sources:
-> dailymail.co.uk
+> dailymail.co.uk<br>
 > ranker.com
 
 # 4. MovieAPIApp (Node.js, Express.js, npm [ Request, ejs ])
