@@ -19,6 +19,9 @@ Installation:
 
 - Campgrounds index images are stored in cloudinary, camground home slide images & profile avatars are stored locally.
 
+# 4.6 Random dog (AJAX)
+
+
 # 4.5 Old New York City Webpage (Semantic-UI)
 
 sources:
