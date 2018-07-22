@@ -1,0 +1,17 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5vw 15vh;
+}
+
+#photo{
+    width: 60vw;
+    height: 60vh;
+    border: solid 3px black
+}
+
+#btn{
+    margin: 15px;
+    border-radius: 30px;
+}
