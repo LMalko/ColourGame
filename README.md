@@ -19,13 +19,14 @@ Installation:
 
 - Campgrounds index images are stored in cloudinary, camground home slide images & profile avatars are stored locally.
 
+# 4.9 Quote Generator (AXIOS, XHR, Fetch API, JQuery)
 
-# 4.8 Random cat (AJAX, Jquery)
+# 4.8 Random Cat (AJAX, Jquery)
 
 # 4.7 User Generator (XHR, Fetch API)
 
 
-# 4.6 Random dog (AJAX, XMLHttp Requests)
+# 4.6 Random Dog (AJAX, XMLHttp Requests)
 
 
 # 4.5 Old New York City Webpage (Semantic-UI, jQuery)
